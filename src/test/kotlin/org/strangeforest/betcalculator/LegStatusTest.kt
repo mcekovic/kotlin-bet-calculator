@@ -1,7 +1,10 @@
 package org.strangeforest.betcalculator
 
 import kotlin.test.*
+import java.math.*
+import java.math.BigDecimal.*
 import assertk.*
+import assertk.assertions.*
 import org.strangeforest.betcalculator.rules.EachWayType.*
 
 class LegStatusTest {
@@ -24,7 +27,7 @@ class LegStatusTest {
       assertTrue(LegStatus.resulted("0.5", "0.5").isWon())
       assertTrue(LegStatus.resulted("0", "0.5").isVoid())
 
-      val minusOne = "-1".dec
+      val minusOne = BigDecimal("-1")
       assertFails { LegStatus.open(minusOne) }
       assertFails { LegStatus.open(minusOne) }
       assertFails { LegStatus.resulted(minusOne, ZERO) }
@@ -33,20 +36,20 @@ class LegStatusTest {
 
    @Test
    fun factoredPriceTest() {
-      assertThat(LegStatus.OPEN.factoredPrice("2".dec)).isEqualByComparingTo("2")
-      assertThat(LegStatus.WON.factoredPrice("2".dec)).isEqualByComparingTo("2")
-      assertThat(LegStatus.VOID.factoredPrice("2".dec)).isEqualByComparingTo("1")
-      assertThat(LegStatus.LOST.factoredPrice("2".dec)).isEqualByComparingTo("0")
+      assertThat(LegStatus.OPEN.factoredPrice(BigDecimal("2"))).isEqualByComparingTo("2")
+      assertThat(LegStatus.WON.factoredPrice(BigDecimal("2"))).isEqualByComparingTo("2")
+      assertThat(LegStatus.VOID.factoredPrice(BigDecimal("2"))).isEqualByComparingTo("1")
+      assertThat(LegStatus.LOST.factoredPrice(BigDecimal("2"))).isEqualByComparingTo("0")
 
-      assertThat(LegStatus.resulted("0.5", "0").factoredPrice("2".dec)).isEqualByComparingTo("1")
-      assertThat(LegStatus.resulted("0.5", "0", "0.25").factoredPrice("2".dec, PLACE)).isEqualByComparingTo("0.625")
+      assertThat(LegStatus.resulted("0.5", "0").factoredPrice(BigDecimal("2"))).isEqualByComparingTo("1")
+      assertThat(LegStatus.resulted("0.5", "0", "0.25").factoredPrice(BigDecimal("2"), PLACE)).isEqualByComparingTo("0.625")
 
-      assertThat(LegStatus.resulted("0.5", "0.5").factoredPrice("2".dec)).isEqualByComparingTo("1.5")
-      assertThat(LegStatus.resulted("0.5", "0.5", "0.25").factoredPrice("2".dec, PLACE)).isEqualByComparingTo("1.125")
+      assertThat(LegStatus.resulted("0.5", "0.5").factoredPrice(BigDecimal("2"))).isEqualByComparingTo("1.5")
+      assertThat(LegStatus.resulted("0.5", "0.5", "0.25").factoredPrice(BigDecimal("2"), PLACE)).isEqualByComparingTo("1.125")
 
-      assertThat(LegStatus.resulted("0", "0.5").factoredPrice("2".dec)).isEqualByComparingTo("0.5")
-      assertThat(LegStatus.resulted("0", "0.5", "0.25").factoredPrice("2".dec, PLACE)).isEqualByComparingTo("0.5")
+      assertThat(LegStatus.resulted("0", "0.5").factoredPrice(BigDecimal("2"))).isEqualByComparingTo("0.5")
+      assertThat(LegStatus.resulted("0", "0.5", "0.25").factoredPrice(BigDecimal("2"), PLACE)).isEqualByComparingTo("0.5")
       
-      assertFails { LegStatus.OPEN.factoredPrice("2".dec, EACH_WAY) }
+      assertFails { LegStatus.OPEN.factoredPrice(BigDecimal("2"), EACH_WAY) }
    }
 }

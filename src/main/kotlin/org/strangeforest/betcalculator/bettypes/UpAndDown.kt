@@ -1,9 +1,11 @@
 package org.strangeforest.betcalculator.bettypes
 
+import java.math.*
+import java.math.BigDecimal.*
 import org.strangeforest.betcalculator.*
 import org.strangeforest.betcalculator.rules.*
 
-abstract class UpAndDown(val stakeFactorCarriedForward: Decimal) : BasePerms(2, false) {
+abstract class UpAndDown(val stakeFactorCarriedForward: BigDecimal) : BasePerms(2, false) {
 
    init {
       validateStakeFactorCarriedForward(stakeFactorCarriedForward)
@@ -13,11 +15,11 @@ abstract class UpAndDown(val stakeFactorCarriedForward: Decimal) : BasePerms(2, 
       .map { combination -> sequenceOf(combination, combination.reversed()) }
       .flatten()
 
-   override fun createUnit(unitStake: Decimal, legs: List<BetLeg>, rules: BetRules): BetUnit =
+   override fun createUnit(unitStake: BigDecimal, legs: List<BetLeg>, rules: BetRules): BetUnit =
       AnyToComeUnit(unitStake, legs, this, rules, ONE, stakeFactorCarriedForward)
 }
 
-abstract class UpAndDownN(stakeFactorCarriedForward: Decimal, val itemCount: Int) : UpAndDown(stakeFactorCarriedForward) {
+abstract class UpAndDownN(stakeFactorCarriedForward: BigDecimal, val itemCount: Int) : UpAndDown(stakeFactorCarriedForward) {
 
    init {
       requireItemCountAtLeast(itemCount, 2)

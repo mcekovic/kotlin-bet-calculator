@@ -1,5 +1,6 @@
 package org.strangeforest.betcalculator.bettypes
 
+import java.math.*
 import org.strangeforest.betcalculator.*
 import org.strangeforest.betcalculator.rules.*
 
@@ -37,13 +38,13 @@ open class StrictPermsN(unitSize: Int, val itemCount: Int) : StrictPerms(unitSiz
    }
 }
 
-class ReducedStakeStrictPermsN(unitSize: Int, itemCount: Int, val unitCountFactor: Decimal) : StrictPermsN(unitSize, itemCount) {
+class ReducedStakeStrictPermsN(unitSize: Int, itemCount: Int, val unitCountFactor: BigDecimal) : StrictPermsN(unitSize, itemCount) {
 
    init {
       validateUnitCountFactor(unitCountFactor)
    }
 
-   override fun createUnit(unitStake: Decimal, legs: List<BetLeg>, rules: BetRules): BetUnit =
+   override fun createUnit(unitStake: BigDecimal, legs: List<BetLeg>, rules: BetRules): BetUnit =
       BetUnit(unitStake, legs, this, rules, unitCountFactor)
 }
 

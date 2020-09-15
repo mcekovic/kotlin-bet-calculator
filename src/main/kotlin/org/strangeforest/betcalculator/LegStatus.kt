@@ -1,12 +1,14 @@
 package org.strangeforest.betcalculator
 
+import java.math.*
+import java.math.BigDecimal.*
 import org.strangeforest.betcalculator.rules.*
 import org.strangeforest.betcalculator.rules.EachWayType.*
 
 data class LegStatus(
-   val winFactor: Decimal,
-   val voidFactor: Decimal,
-   val placeOddsFactor: Decimal = ONE,
+   val winFactor: BigDecimal,
+   val voidFactor: BigDecimal,
+   val placeOddsFactor: BigDecimal = ONE,
    val resulted: Boolean = false
 ) {
 
@@ -24,9 +26,9 @@ data class LegStatus(
       }
    }
 
-   fun factoredPrice(price: Decimal, eachWayType: EachWayType = WIN): Decimal = winFactor * applyOddsFactor(price, eachWayType) + voidFactor
+   fun factoredPrice(price: BigDecimal, eachWayType: EachWayType = WIN): BigDecimal = winFactor * applyOddsFactor(price, eachWayType) + voidFactor
 
-   private fun applyOddsFactor(price: Decimal, eachWayType: EachWayType): Decimal = when (eachWayType) {
+   private fun applyOddsFactor(price: BigDecimal, eachWayType: EachWayType): BigDecimal = when (eachWayType) {
       WIN -> price
       PLACE -> ONE + (price - ONE) * placeOddsFactor
       EACH_WAY -> throw IllegalStateException()
@@ -44,19 +46,19 @@ data class LegStatus(
       val VOID = void()
       val LOST = lost()
 
-      fun open(placeOddsFactor: Decimal = ONE): LegStatus = LegStatus(ONE, ZERO, placeOddsFactor)
-      fun open(placeOddsFactor: String): LegStatus = open(placeOddsFactor.dec)
-      fun won(placeOddsFactor: Decimal = ONE): LegStatus = resulted(ONE, ZERO, placeOddsFactor)
-      fun won(placeOddsFactor: String): LegStatus = won(placeOddsFactor.dec)
-      fun void(placeOddsFactor: Decimal = ONE): LegStatus = resulted(ZERO, ONE, placeOddsFactor)
-      fun void(placeOddsFactor: String): LegStatus = void(placeOddsFactor.dec)
-      fun lost(placeOddsFactor: Decimal = ONE): LegStatus = resulted(ZERO, ZERO, placeOddsFactor)
-      fun lost(placeOddsFactor: String): LegStatus = lost(placeOddsFactor.dec)
+      fun open(placeOddsFactor: BigDecimal = ONE): LegStatus = LegStatus(ONE, ZERO, placeOddsFactor)
+      fun open(placeOddsFactor: String): LegStatus = open(placeOddsFactor.toBigDecimal())
+      fun won(placeOddsFactor: BigDecimal = ONE): LegStatus = resulted(ONE, ZERO, placeOddsFactor)
+      fun won(placeOddsFactor: String): LegStatus = won(placeOddsFactor.toBigDecimal())
+      fun void(placeOddsFactor: BigDecimal = ONE): LegStatus = resulted(ZERO, ONE, placeOddsFactor)
+      fun void(placeOddsFactor: String): LegStatus = void(placeOddsFactor.toBigDecimal())
+      fun lost(placeOddsFactor: BigDecimal = ONE): LegStatus = resulted(ZERO, ZERO, placeOddsFactor)
+      fun lost(placeOddsFactor: String): LegStatus = lost(placeOddsFactor.toBigDecimal())
 
-      fun resulted(winFactor: Decimal, voidFactor: Decimal, placeOddsFactor: Decimal = ONE): LegStatus =
+      fun resulted(winFactor: BigDecimal, voidFactor: BigDecimal, placeOddsFactor: BigDecimal = ONE): LegStatus =
          LegStatus(winFactor, voidFactor, placeOddsFactor, true)
 
       fun resulted(winFactor: String, voidFactor: String, placeOddsFactor: String = ONE.toString()): LegStatus =
-         resulted(winFactor.dec, voidFactor.dec, placeOddsFactor.dec)
+         resulted(winFactor.toBigDecimal(), voidFactor.toBigDecimal(), placeOddsFactor.toBigDecimal())
    }
 }

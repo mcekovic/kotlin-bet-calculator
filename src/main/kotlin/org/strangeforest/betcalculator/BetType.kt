@@ -1,5 +1,6 @@
 package org.strangeforest.betcalculator
 
+import java.math.*
 import org.strangeforest.betcalculator.rules.*
 
 abstract class BetType(val canSkipUnits: Boolean = false) {
@@ -17,7 +18,7 @@ abstract class BetType(val canSkipUnits: Boolean = false) {
 
    fun <T> toCombination(items: List<T>): Combination<T> = Combination(items, this)
 
-   open fun createUnit(unitStake: Decimal, legs: List<BetLeg>, rules: BetRules): BetUnit = BetUnit(unitStake, legs, this, rules)
+   open fun createUnit(unitStake: BigDecimal, legs: List<BetLeg>, rules: BetRules): BetUnit = BetUnit(unitStake, legs, this, rules)
 
    override fun toString(): String = this::class.simpleName.toString()
 }

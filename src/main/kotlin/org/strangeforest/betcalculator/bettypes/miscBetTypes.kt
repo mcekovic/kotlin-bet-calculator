@@ -1,5 +1,6 @@
 package org.strangeforest.betcalculator.bettypes
 
+import java.math.*
 import org.strangeforest.betcalculator.*
 
 object Alphabet : BetType() {
@@ -108,7 +109,7 @@ object Comedy : BaseCompoundBetType(RoundRobin, Roundabout)
 object LiverpoolRoundTheClock : BaseCompoundBetType(Trixie, Roundabout, DoubleStakesAboutN(3))
 
 object DundeeShuffle : BaseCompoundBetType(
-   ReducedStakePermsAnyToComeSubTypeOfRestN(HALF, 1, 4, "0.25".dec, Trixie),
+   ReducedStakePermsAnyToComeSubTypeOfRestN(HALF, 1, 4, BigDecimal("0.25"), Trixie),
    ReducedStakePermsAnyToComeRestN(TWO, 2, 4, HALF),
    ReducedStakeStrictPermsN(3, 4, HALF),
    EachWayAccumulatorN(4, HALF)

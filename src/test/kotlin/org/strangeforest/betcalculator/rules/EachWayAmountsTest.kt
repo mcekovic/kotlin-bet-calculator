@@ -1,9 +1,9 @@
 package org.strangeforest.betcalculator.rules
 
 import kotlin.test.*
+import java.math.*
 import assertk.*
 import assertk.assertions.*
-import org.strangeforest.betcalculator.*
 
 class EachWayAmountsTest {
 
@@ -30,7 +30,7 @@ class EachWayAmountsTest {
 
    @Test
    fun winPrecedenceTest() {
-      assertThat(EachWayAmounts("2", "2").winPrecedence("3".dec)).isEqualTo(EachWayAmounts("3", "1"))
-      assertThat(EachWayAmounts("2", "2").winPrecedence("5".dec)).isEqualTo(EachWayAmounts("4", "0"))
+      assertThat(EachWayAmounts("2", "2").winPrecedence(BigDecimal("3"))).isEqualTo(EachWayAmounts("3", "1"))
+      assertThat(EachWayAmounts("2", "2").winPrecedence(BigDecimal("5"))).isEqualTo(EachWayAmounts("4", "0"))
    }
 }

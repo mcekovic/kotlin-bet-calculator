@@ -1,5 +1,7 @@
 package org.strangeforest.betcalculator.rules
 
+import java.math.*
+import java.math.BigDecimal.*
 import org.strangeforest.betcalculator.*
 
 data class Rank(val position: Int, val sharedAmong: Int = 1) {
@@ -13,11 +15,11 @@ data class Rank(val position: Int, val sharedAmong: Int = 1) {
 
    fun isPlaced(placeTerms: PlaceTerms): Boolean = position in 1..placeTerms.places
 
-   fun deadHeatFactor(placeTerms: PlaceTerms = PlaceTerms.WIN_ONLY): Decimal =
+   fun deadHeatFactor(placeTerms: PlaceTerms = PlaceTerms.WIN_ONLY): BigDecimal =
       if (position > 0) {
          val placesToShare = placeTerms.places - position + 1
          if (placesToShare < sharedAmong)
-            placesToShare.dec / sharedAmong.dec
+            placesToShare.toBigDecimal() / sharedAmong.toBigDecimal()
          else
             ONE
       }

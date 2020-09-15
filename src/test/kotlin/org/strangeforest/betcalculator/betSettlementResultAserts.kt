@@ -1,5 +1,6 @@
 package org.strangeforest.betcalculator
 
+import java.math.*
 import assertk.*
 import assertk.assertions.*
 
@@ -8,8 +9,8 @@ fun Assert<BetSettlementResult>.maxReturn() = prop(BetSettlementResult::maxRetur
 fun Assert<BetSettlementResult>.state() = prop(BetSettlementResult::state)
 
 fun Assert<BetSettlementResult>.isResult(currentReturn: String, maxReturn: String) {
-   currentReturn().isEqualByComparingTo(currentReturn)
-   maxReturn().isEqualByComparingTo(maxReturn)
+   currentReturn().isEqualByComparingTo(BigDecimal(currentReturn))
+   maxReturn().isEqualByComparingTo(BigDecimal(maxReturn))
 }
 
 fun Assert<BetSettlementResult>.isResult(currentReturn: String, maxReturn: String, state: BetState) {
