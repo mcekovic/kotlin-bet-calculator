@@ -5,7 +5,7 @@
 [![Quality](https://sonarcloud.io/api/project_badges/measure?project=mcekovic_kotlin-bet-calculator&metric=alert_status)](https://sonarcloud.io/dashboard?id=mcekovic_kotlin-bet-calculator)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=mcekovic_kotlin-bet-calculator&metric=bugs)](https://sonarcloud.io/component_measures/metric/reliability_rating/list?id=mcekovic_kotlin-bet-calculator)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=mcekovic_kotlin-bet-calculator&metric=vulnerabilities)](https://sonarcloud.io/component_measures/metric/security_rating/list?id=mcekovic_kotlin-bet-calculator)
-[![SonarCloud Vulnerabilities](https://img.shields.io/librariesio/github/mcekovic/kotlin-bet-calculator)](https://libraries.io/github/mcekovic/kotlin-bet-calculator)
+[![Dependencies](https://img.shields.io/librariesio/github/mcekovic/kotlin-bet-calculator)](https://libraries.io/github/mcekovic/kotlin-bet-calculator)
 [![Top Language](https://img.shields.io/github/languages/top/mcekovic/kotlin-bet-calculator)](https://kotlinlang.org)
 
 ## Features
