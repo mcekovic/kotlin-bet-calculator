@@ -13,5 +13,5 @@
 - Dedicated Bet Capture and Settlement calculations
 - Combinatorial and Patterned Bet Types (including *Alphabet*, *Union Jack* and even *Bookies Nightmare*, *Dundee Shuffle*...)
 - Two-level combinatorial expansion via Bet Leg Groups, Bankers
-- Each-Way and Place, Any-to-Come
+- Betting Rules: Each-Way and Place, Dead-Heat, Any-to-Come
 - Selection Interrelation (intra-market, intra-event, max winners, group/competitor, cause-consequence)

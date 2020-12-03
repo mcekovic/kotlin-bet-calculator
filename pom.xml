@@ -16,7 +16,6 @@
       <kotlin.compiler.jvmTarget>11</kotlin.compiler.jvmTarget>
       <kotlin.code.style>official</kotlin.code.style>
       <combinatorics.version>3.3.0</combinatorics.version>
-      <junit-jupiter.version>5.7.0</junit-jupiter.version>
       <assertk.version>0.23</assertk.version>
       <jacoco-maven-plugin.version>0.8.5</jacoco-maven-plugin.version>
    </properties>

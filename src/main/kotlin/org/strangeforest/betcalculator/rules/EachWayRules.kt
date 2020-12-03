@@ -12,7 +12,10 @@ class EachWayRules(val eachWayType: EachWayType, val placeTerms: PlaceTerms) : R
    }
 
    override val openStatus: LegStatus
-      get() = if (eachWayType == WIN) super.openStatus else LegStatus.open(placeTerms.reductionFactor)
+      get() = if (eachWayType == WIN)
+                 super.openStatus
+              else
+                 LegStatus.open(placeTerms.reductionFactor)
 
    override fun resultedStatus(leg: BetLeg, result: Rank): LegStatus =
       when (eachWayType) {
@@ -40,5 +43,8 @@ class EachWayRules(val eachWayType: EachWayType, val placeTerms: PlaceTerms) : R
          ZERO
 
    private fun getDeadHeatFactor(leg: BetLeg, rank: Rank, placeTerms: PlaceTerms): BigDecimal =
-      if (isSingleWinner(leg)) rank.deadHeatFactor(placeTerms) else ONE
+      if (isSingleWinner(leg))
+         rank.deadHeatFactor(placeTerms)
+      else
+         ONE
 }
