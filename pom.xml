@@ -17,7 +17,7 @@
       <kotlin.code.style>official</kotlin.code.style>
       <combinatorics.version>3.3.0</combinatorics.version>
       <assertk.version>0.23</assertk.version>
-      <jacoco-maven-plugin.version>0.8.5</jacoco-maven-plugin.version>
+      <jacoco-maven-plugin.version>0.8.6</jacoco-maven-plugin.version>
    </properties>
 
    <dependencies>
