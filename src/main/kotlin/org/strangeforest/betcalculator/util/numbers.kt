@@ -1,4 +1,4 @@
-package org.strangeforest.betcalculator
+package org.strangeforest.betcalculator.util
 
 import java.math.*
 import java.math.RoundingMode.*

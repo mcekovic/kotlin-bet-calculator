@@ -7,6 +7,7 @@ import org.strangeforest.betcalculator.bettypes.*
 import org.strangeforest.betcalculator.rules.*
 import org.strangeforest.betcalculator.rules.EachWayFormula.*
 import org.strangeforest.betcalculator.rules.EachWayType.*
+import org.strangeforest.betcalculator.util.*
 
 open class BetUnit(
    val unitStake: BigDecimal,

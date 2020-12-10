@@ -4,6 +4,7 @@ import java.math.*
 import java.math.BigDecimal.*
 import org.strangeforest.betcalculator.bettypes.*
 import org.strangeforest.betcalculator.rules.*
+import org.strangeforest.betcalculator.util.*
 
 data class Bet(
    val betType: BetType,
@@ -27,7 +28,7 @@ data class Bet(
             betType.bankerAwareCombinations(legs).map(this::toUnit)
          else {
             betType.bankerAwareCombinations(groups)
-               .map { groupCombination -> cartesianProducts(
+               .map { groupCombination -> cartesianProduct(
                   groupCombination.items.map(BetLegGroup::legCombinations)
                )}.flatten()
                .map { legs -> toUnit(betType.toCombination(legs.flatten()))}

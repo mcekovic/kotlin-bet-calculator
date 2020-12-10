@@ -12,7 +12,7 @@
 
    <properties>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-      <kotlin.version>1.4.20</kotlin.version>
+      <kotlin.version>1.4.21</kotlin.version>
       <kotlin.compiler.jvmTarget>11</kotlin.compiler.jvmTarget>
       <kotlin.code.style>official</kotlin.code.style>
       <combinatorics.version>3.3.0</combinatorics.version>
@@ -30,11 +30,6 @@
          <groupId>org.jetbrains.kotlin</groupId>
          <artifactId>kotlin-stdlib-jdk8</artifactId>
          <version>${kotlin.version}</version>
-      </dependency>
-      <dependency>
-         <groupId>com.github.dpaukov</groupId>
-         <artifactId>combinatoricslib3</artifactId>
-         <version>${combinatorics.version}</version>
       </dependency>
 
       <!-- Test dependencies -->

@@ -3,6 +3,7 @@ package org.strangeforest.betcalculator.bettypes
 import java.math.*
 import org.strangeforest.betcalculator.*
 import org.strangeforest.betcalculator.rules.*
+import org.strangeforest.betcalculator.util.*
 
 abstract class BasePerms(protected val combinationSize: Int, canSkipUnits: Boolean = true) : BetType(canSkipUnits) {
 

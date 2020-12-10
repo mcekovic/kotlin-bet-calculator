@@ -4,6 +4,7 @@ import java.math.*
 import java.math.BigDecimal.*
 import org.strangeforest.betcalculator.*
 import org.strangeforest.betcalculator.rules.*
+import org.strangeforest.betcalculator.util.*
 
 abstract class PermsAnyToComeRest(val stakeFactorCarriedForward: BigDecimal, val leftCombinationSize: Int) : BetType() {
 

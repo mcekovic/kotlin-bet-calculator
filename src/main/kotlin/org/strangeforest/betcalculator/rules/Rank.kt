@@ -2,7 +2,7 @@ package org.strangeforest.betcalculator.rules
 
 import java.math.*
 import java.math.BigDecimal.*
-import org.strangeforest.betcalculator.*
+import org.strangeforest.betcalculator.util.*
 
 data class Rank(val position: Int, val sharedAmong: Int = 1) {
 

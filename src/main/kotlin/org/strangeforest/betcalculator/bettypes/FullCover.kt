@@ -1,6 +1,7 @@
 package org.strangeforest.betcalculator.bettypes
 
 import org.strangeforest.betcalculator.*
+import org.strangeforest.betcalculator.util.*
 
 abstract class BaseFullCover(withSingles: Boolean = false) : BetType() {
 

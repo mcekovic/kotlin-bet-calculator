@@ -1,6 +1,7 @@
 package org.strangeforest.betcalculator.bettypes
 
 import org.strangeforest.betcalculator.*
+import org.strangeforest.betcalculator.util.*
 
 open class PermedSubType(val subBetType: BetType, val subTypeItemCount: Int) : BetType() {
 

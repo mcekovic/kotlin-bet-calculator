@@ -2,6 +2,7 @@ package org.strangeforest.betcalculator.bettypes
 
 import java.math.*
 import org.strangeforest.betcalculator.*
+import org.strangeforest.betcalculator.util.*
 
 object Alphabet : BetType() {
 

@@ -4,6 +4,7 @@ import java.math.*
 import java.math.BigDecimal.*
 import org.strangeforest.betcalculator.*
 import org.strangeforest.betcalculator.rules.*
+import org.strangeforest.betcalculator.util.*
 
 abstract class UpAndDown(val stakeFactorCarriedForward: BigDecimal) : BasePerms(2, false) {
 

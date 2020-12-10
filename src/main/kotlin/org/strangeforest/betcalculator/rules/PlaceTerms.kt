@@ -2,7 +2,7 @@ package org.strangeforest.betcalculator.rules
 
 import java.math.*
 import java.math.BigDecimal.*
-import org.strangeforest.betcalculator.*
+import org.strangeforest.betcalculator.util.*
 
 data class PlaceTerms(val places: Int, val reduction: BigDecimal) {
 
