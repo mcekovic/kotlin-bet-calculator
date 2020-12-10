@@ -62,6 +62,5 @@ class IRDetectorTest {
       val desc1 = IRDescriptor(111, 11, 1, noInterrelation = true)
       val desc2 = IRDescriptor(112, 11, 1)
       assertThat(desc1).isNotInterrelatedWith(desc2)
-
    }
 }

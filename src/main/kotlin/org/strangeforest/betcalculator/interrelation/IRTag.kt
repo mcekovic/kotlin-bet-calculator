@@ -33,7 +33,7 @@ data class IRTag(
 
    companion object {
 
-      val EMPTY = IRTag(IRTagSet.EMPTY, IRTagSet.EMPTY, IRTagSet.EMPTY, IRCCTagSet.EMPTY)
+      val EMPTY = IRTag()
 
       const val OUTCOME_TAGS = "O" // Market Outcome Types
       const val DEP_OUTCOME_TAGS = "D" // Dependent Market Outcome Types

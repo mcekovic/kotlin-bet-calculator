@@ -21,7 +21,8 @@ class IRCCTagSetTest {
    fun emptyTest() {
       assertTrue(IRCCTagSet.EMPTY.empty)
       assertFalse(IRCCTagSet(IRTagSet("1", "2"), IRTagSet.EMPTY).empty)
-      assertFalse(IRCCTagSet(IRTagSet("1", "2"), IRTagSet("3")).empty)
+      assertFalse(IRCCTagSet(IRTagSet.EMPTY, IRTagSet("1",), ).empty)
+      assertFalse(IRCCTagSet(IRTagSet("1"), IRTagSet("3")).empty)
    }
 
    @Test
