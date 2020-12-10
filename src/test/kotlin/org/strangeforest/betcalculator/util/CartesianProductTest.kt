@@ -7,7 +7,7 @@ import assertk.assertions.*
 class CartesianProductTest {
 
 	@Test
-	fun cartesianProductTest() {
+	fun cartesianProduct() {
 		assertThat(cartesianProduct(listOf(listOf("A", "B"), listOf("C", "D"))).toList()).isEqualTo(listOf(
 			listOf("A", "C"),
 			listOf("A", "D"),
@@ -17,8 +17,17 @@ class CartesianProductTest {
 	}
 
 	@Test
-	fun emptyItemsTest() {
+	fun emptyItems() {
 		assertThat(cartesianProduct(listOf<List<String>>()).toList()).isEmpty()
 		assertThat(cartesianProduct(listOf(listOf("A", "B"), listOf())).toList()).isEmpty()
+	}
+
+	@Test
+	fun nextBeyondHasNext() {
+		val cartesianProduct = CartesianProduct(listOf(listOf("A")))
+		cartesianProduct.next()
+		assertFailsWith<NoSuchElementException> {
+			cartesianProduct.next()
+		}
 	}
 }

@@ -7,7 +7,7 @@ import assertk.assertions.*
 class CombinationsTest {
 
    @Test
-   fun combinationsTest() {
+   fun combinations() {
       assertThat(combinations(listOf("A", "B", "C"), 2).toList()).isEqualTo(listOf(
          listOf("A", "B"),
          listOf("A", "C"),
@@ -16,7 +16,7 @@ class CombinationsTest {
    }
 
    @Test
-   fun emptyItemsTest() {
+   fun emptyItems() {
       assertThat(combinations(listOf<String>(), 0).toList()).isEmpty()
    }
 
@@ -27,6 +27,15 @@ class CombinationsTest {
       }
       assertFailsWith<IllegalArgumentException> {
          Combinations(listOf("A", "B"), 3)
+      }
+   }
+
+   @Test
+   fun nextBeyondHasNext() {
+      val combinations = Combinations(listOf("A"), 1)
+      combinations.next()
+      assertFailsWith<NoSuchElementException> {
+         combinations.next()
       }
    }
 }
