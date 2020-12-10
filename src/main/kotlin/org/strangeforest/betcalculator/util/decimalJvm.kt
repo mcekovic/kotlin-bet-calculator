@@ -8,6 +8,7 @@ private val MATH_CONTEXT = MathContext(20, HALF_EVEN)
 actual class Decimal(private val value: BigDecimal) : Comparable<Decimal> {
 
    actual constructor(value: Int) : this(BigDecimal(value))
+   actual constructor(value: Double) : this(BigDecimal(value))
    actual constructor(value: String) : this(BigDecimal(value))
 
    actual operator fun plus(other: Decimal): Decimal = Decimal(value + other.value)

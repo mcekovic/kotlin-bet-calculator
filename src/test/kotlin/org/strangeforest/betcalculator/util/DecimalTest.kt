@@ -35,7 +35,7 @@ class DecimalTest {
    fun equalsTest() {
       assertThat(ONE).isEqualTo(ONE)
       assertThat(1.dec).isEqualTo(1.dec)
-      assertThat(1.dec).isNotEqualTo(2.dec)
+      assertThat(1.dec).isNotEqualTo(1.1.dec)
       assertThat(1.dec).isNotEqualTo(1)
    }
 
@@ -51,6 +51,6 @@ class DecimalTest {
 
    @Test
    fun toStringTest() {
-      assertThat(1.dec).hasToString("1")
+      assertThat(1.5.dec).hasToString("1.5")
    }
 }
