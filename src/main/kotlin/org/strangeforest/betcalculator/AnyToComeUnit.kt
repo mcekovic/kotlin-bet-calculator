@@ -1,20 +1,19 @@
 package org.strangeforest.betcalculator
 
-import java.math.*
-import java.math.BigDecimal.*
 import org.strangeforest.betcalculator.bettypes.*
 import org.strangeforest.betcalculator.rules.*
 import org.strangeforest.betcalculator.rules.EachWayAmounts.Companion.EW_ZERO
 import org.strangeforest.betcalculator.rules.EachWayFormula.*
 import org.strangeforest.betcalculator.rules.EachWayType.*
+import org.strangeforest.betcalculator.util.*
 
 class AnyToComeUnit(
-   unitStake: BigDecimal, legs: List<BetLeg>, betType: BetType = Accumulator, rules: BetRules = BetRules.DEFAULT, unitCountFactor: BigDecimal = ONE,
-   val stakeFactorCarriedForward: BigDecimal = ONE,
+   unitStake: Decimal, legs: List<BetLeg>, betType: BetType = Accumulator, rules: BetRules = BetRules.DEFAULT, unitCountFactor: Decimal = ONE,
+   val stakeFactorCarriedForward: Decimal = ONE,
    val anyToComeOn: Int = 1
 ) : BetUnit(unitStake, legs, betType, rules, unitCountFactor) {
 
-   override val cumulativePrice: BigDecimal by lazy {
+   override val cumulativePrice: Decimal by lazy {
       when (val eachWayType = rules.eachWayType) {
          WIN, PLACE ->
             legs.asSequence()
@@ -35,14 +34,14 @@ class AnyToComeUnit(
       WIN_PRECEDENCE -> amounts.winPrecedence
    }
 
-   private inner class AnyToComeAmounts(val runningOn: BigDecimal, val toReturn: BigDecimal = ZERO) {
+   private inner class AnyToComeAmounts(val runningOn: Decimal, val toReturn: Decimal = ZERO) {
 
       fun anyToCome(legIndex: Int): AnyToComeAmounts =
          if (legIndex == anyToComeOn && runningOn > stakeFactorCarriedForward) AnyToComeAmounts(stakeFactorCarriedForward, total - stakeFactorCarriedForward) else this
 
       operator fun times(other: AnyToComeAmounts) = AnyToComeAmounts(runningOn * other.runningOn, toReturn + other.toReturn)
 
-      val total: BigDecimal
+      val total: Decimal
          get() = runningOn + toReturn
    }
 

@@ -1,8 +1,7 @@
 package org.strangeforest.betcalculator.rules
 
-import java.math.*
-import java.math.BigDecimal.*
 import org.strangeforest.betcalculator.*
+import org.strangeforest.betcalculator.util.*
 
 open class RankRules : LegRules<Rank> {
 
@@ -12,13 +11,13 @@ open class RankRules : LegRules<Rank> {
       else
          LegStatus.VOID
 
-   protected open fun getWinFactor(leg: BetLeg, rank: Rank): BigDecimal =
+   protected open fun getWinFactor(leg: BetLeg, rank: Rank): Decimal =
       if (rank.isWon())
          getDeadHeatFactor(leg, rank)
       else
          ZERO
 
-   private fun getDeadHeatFactor(leg: BetLeg, rank: Rank): BigDecimal =
+   private fun getDeadHeatFactor(leg: BetLeg, rank: Rank): Decimal =
       if (isSingleWinner(leg))
          rank.deadHeatFactor()
       else

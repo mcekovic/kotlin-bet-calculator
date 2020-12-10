@@ -1,9 +1,8 @@
 package org.strangeforest.betcalculator.rules
 
-import java.math.*
-import java.math.BigDecimal.*
 import org.strangeforest.betcalculator.*
 import org.strangeforest.betcalculator.rules.EachWayType.*
+import org.strangeforest.betcalculator.util.*
 
 class EachWayRules(val eachWayType: EachWayType, val placeTerms: PlaceTerms) : RankRules() {
 
@@ -30,19 +29,19 @@ class EachWayRules(val eachWayType: EachWayType, val placeTerms: PlaceTerms) : R
          EACH_WAY -> throw IllegalStateException()
       }
 
-   override fun getWinFactor(leg: BetLeg, rank: Rank): BigDecimal =
+   override fun getWinFactor(leg: BetLeg, rank: Rank): Decimal =
       if (placeTerms.placeOnly && rank.isPlaced(placeTerms))
          getDeadHeatFactor(leg, rank, placeTerms)
       else
          super.getWinFactor(leg, rank)
 
-   private fun getPlaceFactor(leg: BetLeg, rank: Rank): BigDecimal =
+   private fun getPlaceFactor(leg: BetLeg, rank: Rank): Decimal =
       if (rank.isPlaced(placeTerms))
          getDeadHeatFactor(leg, rank, placeTerms)
       else
          ZERO
 
-   private fun getDeadHeatFactor(leg: BetLeg, rank: Rank, placeTerms: PlaceTerms): BigDecimal =
+   private fun getDeadHeatFactor(leg: BetLeg, rank: Rank, placeTerms: PlaceTerms): Decimal =
       if (isSingleWinner(leg))
          rank.deadHeatFactor(placeTerms)
       else

@@ -1,7 +1,7 @@
 package org.strangeforest.betcalculator.bettypes
 
 import kotlin.test.*
-import java.math.BigDecimal.*
+import org.strangeforest.betcalculator.util.*
 
 class LapTest {
 

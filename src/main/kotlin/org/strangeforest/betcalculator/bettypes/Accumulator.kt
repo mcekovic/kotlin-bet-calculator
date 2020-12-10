@@ -1,9 +1,8 @@
 package org.strangeforest.betcalculator.bettypes
 
-import java.math.*
-import java.math.BigDecimal.*
 import org.strangeforest.betcalculator.*
 import org.strangeforest.betcalculator.rules.*
+import org.strangeforest.betcalculator.util.*
 
 abstract class BaseAccumulator : BetType() {
 
@@ -29,13 +28,13 @@ class AccumulatorN(itemCount: Int) : BaseAccumulatorN(itemCount) {
    override fun toString(): String = "Accumulator$itemCount"
 }
 
-class EachWayAccumulatorN(itemCount: Int, val unitCountFactor: BigDecimal = ONE) : BaseAccumulatorN(itemCount) {
+class EachWayAccumulatorN(itemCount: Int, val unitCountFactor: Decimal = ONE) : BaseAccumulatorN(itemCount) {
 
    init {
       validateUnitCountFactor(unitCountFactor)
    }
 
-   override fun createUnit(unitStake: BigDecimal, legs: List<BetLeg>, rules: BetRules): BetUnit {
+   override fun createUnit(unitStake: Decimal, legs: List<BetLeg>, rules: BetRules): BetUnit {
       val unitRules = rules.eachWay()
       return BetUnit(unitStake, legs, this, unitRules, unitCountFactor)
    }

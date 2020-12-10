@@ -2,7 +2,7 @@ package org.strangeforest.betcalculator.rules
 
 import kotlin.test.*
 import assertk.*
-import assertk.assertions.*
+import org.strangeforest.betcalculator.util.*
 
 class RankTest {
 

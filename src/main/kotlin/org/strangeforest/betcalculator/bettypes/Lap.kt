@@ -1,12 +1,10 @@
 package org.strangeforest.betcalculator.bettypes
 
-import java.math.*
-import java.math.BigDecimal.*
 import org.strangeforest.betcalculator.*
 import org.strangeforest.betcalculator.rules.*
 import org.strangeforest.betcalculator.util.*
 
-open class Lap(val stakeFactorCarriedForward: BigDecimal) : BetType() {
+open class Lap(val stakeFactorCarriedForward: Decimal) : BetType() {
 
    init {
       validateStakeFactorCarriedForward(stakeFactorCarriedForward)
@@ -18,7 +16,7 @@ open class Lap(val stakeFactorCarriedForward: BigDecimal) : BetType() {
          .zipWithNext { item1, item2 -> toCombination(listOf(item1, item2)) }
    }
 
-   override fun createUnit(unitStake: BigDecimal, legs: List<BetLeg>, rules: BetRules): BetUnit =
+   override fun createUnit(unitStake: Decimal, legs: List<BetLeg>, rules: BetRules): BetUnit =
       AnyToComeUnit(unitStake, legs, this, rules, ONE, stakeFactorCarriedForward)
 }
 

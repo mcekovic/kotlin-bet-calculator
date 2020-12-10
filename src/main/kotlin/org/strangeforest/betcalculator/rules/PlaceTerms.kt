@@ -1,19 +1,17 @@
 package org.strangeforest.betcalculator.rules
 
-import java.math.*
-import java.math.BigDecimal.*
 import org.strangeforest.betcalculator.util.*
 
-data class PlaceTerms(val places: Int, val reduction: BigDecimal) {
+data class PlaceTerms(val places: Int, val reduction: Decimal) {
 
    init {
       require(places > 0) { "places must be positive" }
       require(reduction >= ONE) { "reduction must be greater then or equal to 1" }
    }
 
-   constructor(places: Int, reduction: String) : this(places, reduction.toBigDecimal())
+   constructor(places: Int, reduction: String) : this(places, reduction.dec)
 
-   val reductionFactor: BigDecimal
+   val reductionFactor: Decimal
       get() = ONE / reduction
 
    val winOnly: Boolean

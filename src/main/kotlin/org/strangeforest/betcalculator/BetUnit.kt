@@ -1,7 +1,5 @@
 package org.strangeforest.betcalculator
 
-import java.math.*
-import java.math.BigDecimal.*
 import org.strangeforest.betcalculator.BetState.*
 import org.strangeforest.betcalculator.bettypes.*
 import org.strangeforest.betcalculator.rules.*
@@ -10,40 +8,40 @@ import org.strangeforest.betcalculator.rules.EachWayType.*
 import org.strangeforest.betcalculator.util.*
 
 open class BetUnit(
-   val unitStake: BigDecimal,
+   val unitStake: Decimal,
    val legs: List<BetLeg>,
    val betType: BetType = Accumulator,
    val rules: BetRules = BetRules.DEFAULT,
-   val unitCountFactor: BigDecimal = ONE
+   val unitCountFactor: Decimal = ONE
 ) {
 
    constructor(unitStake: String, legs: List<BetLeg>, betType: BetType = Accumulator, rules: BetRules = BetRules.DEFAULT, unitCountFactor: String = ONE.toString()) :
-      this(unitStake.toBigDecimal(), legs, betType, rules, unitCountFactor.toBigDecimal())
+      this(unitStake.dec, legs, betType, rules, unitCountFactor.dec)
 
-   val unitCount: BigDecimal by lazy {
+   val unitCount: Decimal by lazy {
       unitCountFactor * rules.eachWayType.unitCount
    }
 
-   val stake: BigDecimal by lazy {
+   val stake: Decimal by lazy {
       unitCount * unitStake
    }
 
-   val currentReturn: BigDecimal
+   val currentReturn: Decimal
       get() = if ((WON..VOID).contains(state)) calculatedReturn else ZERO
 
-   val maxReturn: BigDecimal
+   val maxReturn: Decimal
       get() = if (state != LOST) calculatedReturn else ZERO
 
-   private val calculatedReturn: BigDecimal by lazy {
+   private val calculatedReturn: Decimal by lazy {
       stake * cumulativePrice
    }
 
-   open val cumulativePrice: BigDecimal by lazy {
+   open val cumulativePrice: Decimal by lazy {
       when (val eachWayType = rules.eachWayType) {
          WIN, PLACE ->
             legs.asSequence()
                .map { leg -> leg.factoredPrice(eachWayType) }
-               .reduce(BigDecimal::times)
+               .reduce(Decimal::times)
          EACH_WAY ->
             legs.asSequence()
                .map { leg -> distributeEachWay(EachWayAmounts(leg.factoredPrice(WIN), leg.factoredPrice(PLACE))) }

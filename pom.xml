@@ -72,6 +72,9 @@
                   </goals>
                </execution>
             </executions>
+            <configuration>
+               <args>-Xmulti-platform</args>
+            </configuration>
          </plugin>
          <plugin>
             <groupId>org.jacoco</groupId>

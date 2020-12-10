@@ -1,12 +1,10 @@
 package org.strangeforest.betcalculator.bettypes
 
-import java.math.*
-import java.math.BigDecimal.*
 import org.strangeforest.betcalculator.*
 import org.strangeforest.betcalculator.rules.*
 import org.strangeforest.betcalculator.util.*
 
-abstract class PermsAnyToComeRest(val stakeFactorCarriedForward: BigDecimal, val leftCombinationSize: Int) : BetType() {
+abstract class PermsAnyToComeRest(val stakeFactorCarriedForward: Decimal, val leftCombinationSize: Int) : BetType() {
 
    init {
       validateStakeFactorCarriedForward(stakeFactorCarriedForward)
@@ -21,11 +19,11 @@ abstract class PermsAnyToComeRest(val stakeFactorCarriedForward: BigDecimal, val
    open fun <T> unitSequence(items: List<T>): Sequence<Combination<T>> =
       combinations(items, leftCombinationSize).map { leftItems -> toCombination(leftItems + (items - leftItems)) }
 
-   override fun createUnit(unitStake: BigDecimal, legs: List<BetLeg>, rules: BetRules): BetUnit =
+   override fun createUnit(unitStake: Decimal, legs: List<BetLeg>, rules: BetRules): BetUnit =
       AnyToComeUnit(unitStake, legs, this, rules, ONE, stakeFactorCarriedForward, leftCombinationSize)
 }
 
-abstract class PermsAnyToComeRestN(stakeFactorCarriedForward: BigDecimal, leftUnitSize: Int, val itemCount: Int) : PermsAnyToComeRest(stakeFactorCarriedForward, leftUnitSize) {
+abstract class PermsAnyToComeRestN(stakeFactorCarriedForward: Decimal, leftUnitSize: Int, val itemCount: Int) : PermsAnyToComeRest(stakeFactorCarriedForward, leftUnitSize) {
 
    init {
       requireItemCountAtLeast(itemCount, 2)
@@ -37,18 +35,18 @@ abstract class PermsAnyToComeRestN(stakeFactorCarriedForward: BigDecimal, leftUn
    }
 }
 
-open class ReducedStakePermsAnyToComeRestN(stakeFactorCarriedForward: BigDecimal, leftUnitSize: Int, itemCount: Int, val unitCountFactor: BigDecimal) :
+open class ReducedStakePermsAnyToComeRestN(stakeFactorCarriedForward: Decimal, leftUnitSize: Int, itemCount: Int, val unitCountFactor: Decimal) :
    PermsAnyToComeRestN(stakeFactorCarriedForward, leftUnitSize, itemCount) {
 
    init {
       validateUnitCountFactor(unitCountFactor)
    }
 
-   override fun createUnit(unitStake: BigDecimal, legs: List<BetLeg>, rules: BetRules): BetUnit =
+   override fun createUnit(unitStake: Decimal, legs: List<BetLeg>, rules: BetRules): BetUnit =
       AnyToComeUnit(unitStake, legs, this, rules, unitCountFactor, stakeFactorCarriedForward, leftCombinationSize)
 }
 
-class ReducedStakePermsAnyToComeSubTypeOfRestN(stakeFactorCarriedForward: BigDecimal, leftUnitSize: Int, itemCount: Int, unitCountFactor: BigDecimal, val subBetType: BetType) :
+class ReducedStakePermsAnyToComeSubTypeOfRestN(stakeFactorCarriedForward: Decimal, leftUnitSize: Int, itemCount: Int, unitCountFactor: Decimal, val subBetType: BetType) :
    ReducedStakePermsAnyToComeRestN(stakeFactorCarriedForward, leftUnitSize, itemCount, unitCountFactor) {
 
    override fun <T> unitSequence(items: List<T>): Sequence<Combination<T>> =

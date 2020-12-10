@@ -4,6 +4,7 @@ import kotlin.test.*
 import assertk.*
 import assertk.assertions.*
 import org.strangeforest.betcalculator.BetState.*
+import org.strangeforest.betcalculator.util.*
 
 class BetUnitTest {
 

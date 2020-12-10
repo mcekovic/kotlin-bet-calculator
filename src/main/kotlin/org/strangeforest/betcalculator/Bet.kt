@@ -1,14 +1,11 @@
 package org.strangeforest.betcalculator
 
-import java.math.*
-import java.math.BigDecimal.*
-import org.strangeforest.betcalculator.bettypes.*
 import org.strangeforest.betcalculator.rules.*
 import org.strangeforest.betcalculator.util.*
 
 data class Bet(
    val betType: BetType,
-   val unitStake: BigDecimal,
+   val unitStake: Decimal,
    val legs: List<BetLeg> = emptyList(),
    val groups: List<BetLegGroup> = emptyList(),
    val rules: BetRules = BetRules.DEFAULT
@@ -20,7 +17,7 @@ data class Bet(
    }
 
    constructor(betType: BetType, unitStake: String, legs: List<BetLeg> = emptyList(), groups: List<BetLegGroup> = emptyList(), rules: BetRules = BetRules.DEFAULT) :
-      this(betType, unitStake.toBigDecimal(), legs, groups, rules)
+      this(betType, unitStake.dec, legs, groups, rules)
 
    val units: Sequence<BetUnit>
       get() {
