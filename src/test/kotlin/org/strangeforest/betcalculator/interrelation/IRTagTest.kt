@@ -49,4 +49,11 @@ class IRTagTest {
       assertThat(irTag1 + irTag2).isEqualTo(irTags12)
       assertThat(irTag2 + irTag1).isEqualTo(irTags12)
    }
+
+   @Test
+   fun invalidTagTest() {
+      assertFailsWith<IllegalArgumentException> { IRTag.of("X:Score") }
+      assertFailsWith<IllegalArgumentException> { IRTag.of("Score") }
+      assertFailsWith<IllegalArgumentException> { IRTag.of("C:1111,2222,3333") }
+   }
 }

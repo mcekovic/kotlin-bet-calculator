@@ -1,9 +1,5 @@
 package org.strangeforest.betcalculator.interrelation
 
-import kotlin.collections.ArrayList
-import java.util.*
-import java.util.regex.*
-
 data class IRTag(
    val outcomeTagSet: IRTagSet = IRTagSet.EMPTY,
    val depOutcomeTagSet: IRTagSet = IRTagSet.EMPTY,
@@ -43,56 +39,39 @@ data class IRTag(
       const val DEP_OUTCOME_TAGS = "D" // Dependent Market Outcome Types
       const val GROUP_TAGS = "G" // Group Relationship Sets
       const val CC_TAGS = "C" // Cause-Consequence Relationship Sets
+      const val TAG_SET_SEPARATOR = ";"
       const val TYPE_SEPARATOR = ":"
       const val TAG_SEPARATOR = ","
       const val CC_TAGS_SEPARATOR = ">"
-      const val TAG_SET_SEPARATOR = ";"
-
-
-      private val delimiter: Pattern = Pattern.compile("")
-      private val typePattern: Pattern = Pattern.compile("[A-Z]")
-      private val typeDelimiterPattern: Pattern = Pattern.compile(TYPE_SEPARATOR)
-      private val tagPattern: Pattern = Pattern.compile("\\w+|\\*")
-      private val tagDelimiterPattern: Pattern = Pattern.compile(TAG_SEPARATOR)
-      private val ccTagsDelimiterPattern: Pattern = Pattern.compile(CC_TAGS_SEPARATOR)
-      private val delimiterPattern: Pattern = Pattern.compile(TAG_SET_SEPARATOR)
 
       fun of(tag: String): IRTag {
-         var outcomeTagSet: IRTagSet = IRTagSet.EMPTY
-         var depOutcomeTagSet: IRTagSet = IRTagSet.EMPTY
-         var groupTagSet: IRTagSet = IRTagSet.EMPTY
-         var ccTagSet: IRCCTagSet = IRCCTagSet.EMPTY
-         val scanner = Scanner(tag)
-         scanner.useDelimiter(delimiter)
-         while (scanner.hasNext(typePattern)) {
-            val setType: String = scanner.findInLine(typePattern)
-            scanner.skip(typeDelimiterPattern)
-            when (setType) {
-               OUTCOME_TAGS -> outcomeTagSet = IRTagSet(nextTags(scanner))
-               DEP_OUTCOME_TAGS -> depOutcomeTagSet = IRTagSet(nextTags(scanner))
-               GROUP_TAGS -> groupTagSet = IRTagSet(nextTags(scanner))
-               CC_TAGS -> ccTagSet = parseCCIRTagSet(scanner)
+         var outcomeTagSet = IRTagSet.EMPTY
+         var depOutcomeTagSet = IRTagSet.EMPTY
+         var groupTagSet = IRTagSet.EMPTY
+         var ccTagSet = IRCCTagSet.EMPTY
+         val tagSets = tag.split(TAG_SET_SEPARATOR).filter(String::isNotEmpty)
+         for (tagSet in tagSets) {
+            val tagSetParts = tagSet.split(TYPE_SEPARATOR)
+            if (tagSetParts.size < 2)
+               throw IllegalArgumentException("Invalid tag: $tag")
+            when (val tagSetType = tagSetParts[0]) {
+               OUTCOME_TAGS -> outcomeTagSet = parseTagSet(tagSetParts[1])
+               DEP_OUTCOME_TAGS -> depOutcomeTagSet = parseTagSet(tagSetParts[1])
+               GROUP_TAGS -> groupTagSet = parseTagSet(tagSetParts[1])
+               CC_TAGS -> ccTagSet = parseCCTagSet(tagSetParts[1])
+               else -> throw IllegalArgumentException("Unknown tag type: $tagSetType")
             }
-            if (scanner.hasNext(delimiterPattern))
-               scanner.skip(delimiterPattern)
          }
          return IRTag(outcomeTagSet, depOutcomeTagSet, groupTagSet, ccTagSet)
       }
 
-      private fun nextTags(scanner: Scanner): List<String> {
-         val tags: MutableList<String> = ArrayList()
-         while (scanner.hasNext(tagPattern)) {
-            tags.add(scanner.findInLine(tagPattern))
-            if (scanner.hasNext(tagDelimiterPattern)) scanner.skip(tagDelimiterPattern)
-         }
-         return tags
-      }
+      private fun parseTagSet(tags: String) = IRTagSet(tags.split(TAG_SEPARATOR).filter(String::isNotEmpty))
 
-      private fun parseCCIRTagSet(scanner: Scanner): IRCCTagSet {
-         val causeTagSet = IRTagSet(nextTags(scanner))
-         scanner.skip(ccTagsDelimiterPattern)
-         val consequenceTagSet = IRTagSet(nextTags(scanner))
-         return IRCCTagSet(causeTagSet, consequenceTagSet)
+      private fun parseCCTagSet(ccTags: String): IRCCTagSet {
+         val ccTagSetParts = ccTags.split(CC_TAGS_SEPARATOR)
+         if (ccTagSetParts.size < 2)
+            throw IllegalArgumentException("Invalid CC tag: $ccTags")
+         return IRCCTagSet(parseTagSet(ccTagSetParts[0]), parseTagSet(ccTagSetParts[1]))
       }
 
       private fun appendTagSet(sb: StringBuilder, tagSetType: String, tagSet: Any) {
