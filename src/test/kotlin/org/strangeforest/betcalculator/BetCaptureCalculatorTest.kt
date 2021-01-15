@@ -441,14 +441,14 @@ class BetCaptureCalculatorTest {
       assertThat(result).isResult(14, "140", "833.125")
    }
 
-   @Test(expected = IllegalArgumentException::class)
+   @Test
    fun winPrecedenceEachWayFormulaIsOnlyForAnyToComeBets() {
-      val bet = Bet(Double, "10", listOf(
-         BetLeg("2", LegStatus.open(placeOddsFactor = "0.25")),
-         BetLeg("3", LegStatus.open(placeOddsFactor = "0.25"))
-      ), rules = BetRules(EACH_WAY, WIN_PRECEDENCE))
-
-      BetCaptureCalculator.calculate(bet)
+      assertFailsWith<IllegalArgumentException> {
+         Bet(Double, "10", listOf(
+            BetLeg("2", LegStatus.open(placeOddsFactor = "0.25")),
+            BetLeg("3", LegStatus.open(placeOddsFactor = "0.25"))
+         ), rules = BetRules(EACH_WAY, WIN_PRECEDENCE))
+      }
    }
 
 

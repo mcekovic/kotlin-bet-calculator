@@ -30,7 +30,7 @@ class EachWayAmountsTest {
 
    @Test
    fun winPrecedenceTest() {
-      assertThat(EachWayAmounts("2", "2").winPrecedence(Decimal("3"))).isEqualTo(EachWayAmounts("3", "1"))
-      assertThat(EachWayAmounts("2", "2").winPrecedence(Decimal("5"))).isEqualTo(EachWayAmounts("4", "0"))
+      assertThat(EachWayAmounts("2", "2").winPrecedence("3".dec)).isEqualTo(EachWayAmounts("3", "1"))
+      assertThat(EachWayAmounts("2", "2").winPrecedence("5".dec)).isEqualTo(EachWayAmounts("4", "0"))
    }
 }

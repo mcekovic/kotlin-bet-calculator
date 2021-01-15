@@ -17,6 +17,6 @@ class AccumulatorTest {
    @Test
    fun invalidAccumulatorTest() {
       assertFails { AccumulatorN(0) }
-      assertFails { EachWayAccumulatorN(5, Decimal("-1")) }
+      assertFails { EachWayAccumulatorN(5, "-1".dec) }
    }
 }

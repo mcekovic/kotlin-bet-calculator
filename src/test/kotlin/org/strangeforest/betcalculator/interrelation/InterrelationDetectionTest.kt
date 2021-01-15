@@ -8,7 +8,7 @@ import org.strangeforest.betcalculator.bettypes.*
 
 class InterrelationDetectionTest {
 
-   @Test(expected = IRSelectionsException::class)
+   @Test
    fun interrelatedSelectionsAreDetected() {
       val bet = Bet(Patent, "1", listOf(
          BetLeg("2", irDescriptor = IRDescriptor(111, 11, 1)),
@@ -16,10 +16,12 @@ class InterrelationDetectionTest {
          BetLeg("4", irDescriptor = IRDescriptor(121, 12, 1))
       ))
 
-      BetCaptureCalculator.calculate(bet)
+	   assertFailsWith<IRSelectionsException> {
+		   BetCaptureCalculator.calculate(bet)
+	   }
    }
 
-   @Test(expected = MaxWinnersViolationException::class)
+   @Test
    fun maxWinnersViolationIsDetected() {
       val bet = Bet(Patent, "1", listOf(
          BetLeg("2", irDescriptor = IRDescriptor(111, 11, 1, 2)),
@@ -27,7 +29,9 @@ class InterrelationDetectionTest {
          BetLeg("4", irDescriptor = IRDescriptor(113, 11, 1, 2))
       ))
 
-      BetCaptureCalculator.calculate(bet)
+	   assertFailsWith<MaxWinnersViolationException> {
+	      BetCaptureCalculator.calculate(bet)
+	   }
    }
 
    @Test
@@ -43,7 +47,7 @@ class InterrelationDetectionTest {
       assertThat(result).isResult(2, "2", "20")
    }
 
-   @Test(expected = IRException::class)
+   @Test
    fun betWithAllUnitsWithInterrelatedSelectionsIsDetected() {
       val bet = Bet(Doubles, "1", listOf(
          BetLeg("2", irDescriptor = IRDescriptor(111, 11, 1)),
@@ -51,7 +55,9 @@ class InterrelationDetectionTest {
          BetLeg("4", irDescriptor = IRDescriptor(112, 11, 1))
       ))
 
-      BetCaptureCalculator.calculate(bet)
+	   assertFailsWith<IRException> {
+		   BetCaptureCalculator.calculate(bet)
+	   }
    }
 
 	@Test
