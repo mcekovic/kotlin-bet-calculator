@@ -2,6 +2,7 @@ package org.strangeforest.betcalculator
 
 import org.strangeforest.betcalculator.rules.*
 import org.strangeforest.betcalculator.util.*
+import kotlin.js.*
 
 data class Bet(
    val betType: BetType,
@@ -16,6 +17,7 @@ data class Bet(
       require(legs.isNotEmpty() != groups.isNotEmpty()) { "either legs or groups must be specified" }
    }
 
+   @JsName("Bet_init")
    constructor(betType: BetType, unitStake: String, legs: List<BetLeg> = emptyList(), groups: List<BetLegGroup> = emptyList(), rules: BetRules = BetRules.DEFAULT) :
       this(betType, unitStake.dec, legs, groups, rules)
 

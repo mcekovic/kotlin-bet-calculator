@@ -2,6 +2,7 @@ package org.strangeforest.betcalculator
 
 import org.strangeforest.betcalculator.interrelation.*
 import org.strangeforest.betcalculator.interrelation.IRType.*
+import kotlin.js.*
 
 sealed class BetCalculator<BR : BetResult<BR>> {
 
@@ -9,6 +10,7 @@ sealed class BetCalculator<BR : BetResult<BR>> {
 
    abstract fun unitResult(unit: BetUnit): BR
 
+   @JsName("calculate")
    fun calculate(bet: Bet): BR {
       val irDetector = IRDetector()
       return bet.units

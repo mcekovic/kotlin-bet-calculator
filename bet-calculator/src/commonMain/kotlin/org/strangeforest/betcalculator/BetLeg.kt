@@ -4,6 +4,7 @@ import org.strangeforest.betcalculator.interrelation.*
 import org.strangeforest.betcalculator.rules.*
 import org.strangeforest.betcalculator.rules.EachWayType.*
 import org.strangeforest.betcalculator.util.*
+import kotlin.js.*
 
 data class BetLeg(
    val price: Decimal,
@@ -16,6 +17,7 @@ data class BetLeg(
       require(price >= ONE) { "price must be greater than or equal to 1" }
    }
 
+   @JsName("BetLeg_init")
    constructor(price: String, status: LegStatus = LegStatus.OPEN, irDescriptor: IRDescriptor = IRDescriptor.NO_IR, banker: Boolean = false) :
       this(price.dec, status, irDescriptor, banker)
 
