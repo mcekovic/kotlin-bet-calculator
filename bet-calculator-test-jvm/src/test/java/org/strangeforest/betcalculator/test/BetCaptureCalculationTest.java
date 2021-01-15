@@ -37,8 +37,8 @@ class BetCaptureCalculationTest {
 	}
 
 	@Test
-	void calculatePermsBet() {
-		var bet = new Bet(new Perms(2), "1", List.of(
+	void calculateDoublesBet() {
+		var bet = new Bet(Doubles.INSTANCE, "1", List.of(
 			new BetLeg("2.0", LegStatus.Companion.getOPEN(), IRDescriptor.Companion.getNO_IR(), false),
 			new BetLeg("3.0", LegStatus.Companion.getOPEN(), IRDescriptor.Companion.getNO_IR(), false),
 			new BetLeg("4.0", LegStatus.Companion.getOPEN(), IRDescriptor.Companion.getNO_IR(), false)
@@ -47,5 +47,35 @@ class BetCaptureCalculationTest {
 		var result = BetCaptureCalculator.INSTANCE.calculate(bet);
 
 		assertThat(result.getMaxReturn()).isEqualByComparingTo(new Decimal("26"));
+	}
+
+	@Test
+	void calculateBigPermsBet() {
+		var bet = new Bet(new Perms(10), "1", List.of(
+			new BetLeg("1.1", LegStatus.Companion.getOPEN(), IRDescriptor.Companion.getNO_IR(), false),
+			new BetLeg("1.2", LegStatus.Companion.getOPEN(), IRDescriptor.Companion.getNO_IR(), false),
+			new BetLeg("1.4", LegStatus.Companion.getOPEN(), IRDescriptor.Companion.getNO_IR(), false),
+			new BetLeg("1.6", LegStatus.Companion.getOPEN(), IRDescriptor.Companion.getNO_IR(), false),
+			new BetLeg("1.8", LegStatus.Companion.getOPEN(), IRDescriptor.Companion.getNO_IR(), false),
+			new BetLeg("2.0", LegStatus.Companion.getOPEN(), IRDescriptor.Companion.getNO_IR(), false),
+			new BetLeg("3.0", LegStatus.Companion.getOPEN(), IRDescriptor.Companion.getNO_IR(), false),
+			new BetLeg("4.0", LegStatus.Companion.getOPEN(), IRDescriptor.Companion.getNO_IR(), false),
+			new BetLeg("5.0", LegStatus.Companion.getOPEN(), IRDescriptor.Companion.getNO_IR(), false),
+			new BetLeg("6.0", LegStatus.Companion.getOPEN(), IRDescriptor.Companion.getNO_IR(), false),
+			new BetLeg("1.1", LegStatus.Companion.getOPEN(), IRDescriptor.Companion.getNO_IR(), false),
+			new BetLeg("1.2", LegStatus.Companion.getOPEN(), IRDescriptor.Companion.getNO_IR(), false),
+			new BetLeg("1.4", LegStatus.Companion.getOPEN(), IRDescriptor.Companion.getNO_IR(), false),
+			new BetLeg("1.6", LegStatus.Companion.getOPEN(), IRDescriptor.Companion.getNO_IR(), false),
+			new BetLeg("1.8", LegStatus.Companion.getOPEN(), IRDescriptor.Companion.getNO_IR(), false),
+			new BetLeg("2.0", LegStatus.Companion.getOPEN(), IRDescriptor.Companion.getNO_IR(), false),
+			new BetLeg("3.0", LegStatus.Companion.getOPEN(), IRDescriptor.Companion.getNO_IR(), false),
+			new BetLeg("4.0", LegStatus.Companion.getOPEN(), IRDescriptor.Companion.getNO_IR(), false),
+			new BetLeg("5.0", LegStatus.Companion.getOPEN(), IRDescriptor.Companion.getNO_IR(), false),
+			new BetLeg("6.0", LegStatus.Companion.getOPEN(), IRDescriptor.Companion.getNO_IR(), false)
+		), List.of(), BetRules.Companion.getDEFAULT());
+
+		var result = BetCaptureCalculator.INSTANCE.calculate(bet);
+
+		assertThat(result.getMaxReturn()).isEqualByComparingTo(new Decimal("1662209157.7375774976"));
 	}
 }
