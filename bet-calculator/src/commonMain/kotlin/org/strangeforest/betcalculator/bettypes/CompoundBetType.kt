@@ -1,6 +1,6 @@
 package org.strangeforest.betcalculator.bettypes
 
-import org.strangeforest.betcalculator.*
+import org.strangeforest.betcalculator.core.*
 
 abstract class BaseCompoundBetType(vararg val betTypes: BetType) : BetType() {
 

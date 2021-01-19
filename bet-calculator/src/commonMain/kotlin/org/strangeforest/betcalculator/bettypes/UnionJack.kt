@@ -1,6 +1,6 @@
 package org.strangeforest.betcalculator.bettypes
 
-import org.strangeforest.betcalculator.*
+import org.strangeforest.betcalculator.core.*
 
 sealed class BaseUnionJack(private val betType: BetType) : BetType() {
 

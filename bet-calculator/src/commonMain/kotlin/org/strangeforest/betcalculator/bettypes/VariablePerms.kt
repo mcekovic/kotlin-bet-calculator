@@ -1,6 +1,6 @@
 package org.strangeforest.betcalculator.bettypes
 
-import org.strangeforest.betcalculator.*
+import org.strangeforest.betcalculator.core.*
 import org.strangeforest.betcalculator.util.*
 
 abstract class BaseVariablePerms(val fromCombinationSize: Int, val toCombinationSize: Int, canSkipUnits: Boolean = true) : BetType(canSkipUnits) {
