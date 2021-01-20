@@ -1,6 +1,6 @@
 package org.strangeforest.betcalculator.core
 
-interface BankerAware {
+internal interface BankerAware {
 
    val banker: Boolean
 }

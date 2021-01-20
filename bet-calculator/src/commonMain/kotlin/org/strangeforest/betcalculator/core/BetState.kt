@@ -1,6 +1,6 @@
 package org.strangeforest.betcalculator.core
 
-enum class BetState {
+internal enum class BetState {
 
    OPEN, WON, VOID, LOST;
 

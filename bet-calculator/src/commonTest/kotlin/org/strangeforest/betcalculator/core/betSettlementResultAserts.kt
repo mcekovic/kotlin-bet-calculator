@@ -4,16 +4,16 @@ import assertk.*
 import assertk.assertions.*
 import org.strangeforest.betcalculator.util.*
 
-fun Assert<BetSettlementResult>.currentReturn() = prop(BetSettlementResult::currentReturn)
-fun Assert<BetSettlementResult>.maxReturn() = prop(BetSettlementResult::maxReturn)
-fun Assert<BetSettlementResult>.state() = prop(BetSettlementResult::state)
+internal fun Assert<BetSettlementResult>.currentReturn() = prop(BetSettlementResult::currentReturn)
+internal fun Assert<BetSettlementResult>.maxReturn() = prop(BetSettlementResult::maxReturn)
+internal fun Assert<BetSettlementResult>.state() = prop(BetSettlementResult::state)
 
-fun Assert<BetSettlementResult>.isResult(currentReturn: String, maxReturn: String) {
+internal fun Assert<BetSettlementResult>.isResult(currentReturn: String, maxReturn: String) {
    currentReturn().isEqualByComparingTo(currentReturn)
    maxReturn().isEqualByComparingTo(maxReturn)
 }
 
-fun Assert<BetSettlementResult>.isResult(currentReturn: String, maxReturn: String, state: BetState) {
+internal fun Assert<BetSettlementResult>.isResult(currentReturn: String, maxReturn: String, state: BetState) {
    isResult(currentReturn, maxReturn)
    state().isEqualTo(state)
 }

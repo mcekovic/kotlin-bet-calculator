@@ -2,7 +2,7 @@ package org.strangeforest.betcalculator.rules
 
 import org.strangeforest.betcalculator.core.*
 
-interface LegRules<R> {
+internal interface LegRules<R> {
 
    val openStatus: LegStatus
       get() = LegStatus.OPEN

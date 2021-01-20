@@ -3,12 +3,12 @@ package org.strangeforest.betcalculator.core
 import org.strangeforest.betcalculator.core.BetState.*
 import org.strangeforest.betcalculator.util.*
 
-interface BetResult<BR : BetResult<BR>> {
+internal interface BetResult<BR : BetResult<BR>> {
 
    operator fun plus(other: BR): BR
 }
 
-data class BetCaptureResult(
+internal data class BetCaptureResult(
    val unitCount: Decimal,
    val stake: Decimal,
    val maxReturn: Decimal,
@@ -23,7 +23,7 @@ data class BetCaptureResult(
    )
 }
 
-data class BetSettlementResult(
+internal data class BetSettlementResult(
    val currentReturn: Decimal,
    val maxReturn: Decimal,
    val state: BetState = OPEN

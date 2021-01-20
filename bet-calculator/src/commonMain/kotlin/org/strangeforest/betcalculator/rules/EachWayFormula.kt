@@ -1,6 +1,6 @@
 package org.strangeforest.betcalculator.rules
 
-enum class EachWayFormula {
+internal enum class EachWayFormula {
 
 	WIN_PLACE, EQUALLY_DIVIDED, WIN_PRECEDENCE
 }

@@ -4,7 +4,7 @@ import org.strangeforest.betcalculator.core.*
 import org.strangeforest.betcalculator.rules.*
 import org.strangeforest.betcalculator.util.*
 
-abstract class UpAndDown(val stakeFactorCarriedForward: Decimal) : BasePerms(2, false) {
+internal abstract class UpAndDown(val stakeFactorCarriedForward: Decimal) : BasePerms(2, false) {
 
    init {
       validateStakeFactorCarriedForward(stakeFactorCarriedForward)
@@ -18,7 +18,7 @@ abstract class UpAndDown(val stakeFactorCarriedForward: Decimal) : BasePerms(2, 
       AnyToComeUnit(unitStake, legs, this, rules, ONE, stakeFactorCarriedForward)
 }
 
-abstract class UpAndDownN(stakeFactorCarriedForward: Decimal, val itemCount: Int) : UpAndDown(stakeFactorCarriedForward) {
+internal abstract class UpAndDownN(stakeFactorCarriedForward: Decimal, val itemCount: Int) : UpAndDown(stakeFactorCarriedForward) {
 
    init {
       requireItemCountAtLeast(itemCount, 2)
@@ -30,22 +30,22 @@ abstract class UpAndDownN(stakeFactorCarriedForward: Decimal, val itemCount: Int
    }
 }
 
-class SingleStakesAboutN(itemCount: Int) : UpAndDownN(ONE, itemCount) {
+internal class SingleStakesAboutN(itemCount: Int) : UpAndDownN(ONE, itemCount) {
 
    override fun toString(): String = "SingleStakesAbout$itemCount"
 }
 
-class DoubleStakesAboutN(itemCount: Int) : UpAndDownN(TWO, itemCount) {
+internal class DoubleStakesAboutN(itemCount: Int) : UpAndDownN(TWO, itemCount) {
 
    override fun toString(): String = "DoubleStakesAbout$itemCount"
 }
 
-object SingleStakesAbout : UpAndDown(ONE)
-object DoubleStakesAbout : UpAndDown(TWO)
+internal object SingleStakesAbout : UpAndDown(ONE)
+internal object DoubleStakesAbout : UpAndDown(TWO)
 
-object RoundRobin : BaseCompoundBetType(Trixie, SingleStakesAboutN(3))
-object Flag : BaseCompoundBetType(Yankee, SingleStakesAboutN(4))
-object SuperFlag : BaseCompoundBetType(Canadian, SingleStakesAboutN(5))
-object HeinzFlag : BaseCompoundBetType(Heinz, SingleStakesAboutN(6))
-object SuperHeinzFlag : BaseCompoundBetType(SuperHeinz, SingleStakesAboutN(7))
-object GoliathFlag : BaseCompoundBetType(Goliath, SingleStakesAboutN(8))
+internal object RoundRobin : BaseCompoundBetType(Trixie, SingleStakesAboutN(3))
+internal object Flag : BaseCompoundBetType(Yankee, SingleStakesAboutN(4))
+internal object SuperFlag : BaseCompoundBetType(Canadian, SingleStakesAboutN(5))
+internal object HeinzFlag : BaseCompoundBetType(Heinz, SingleStakesAboutN(6))
+internal object SuperHeinzFlag : BaseCompoundBetType(SuperHeinz, SingleStakesAboutN(7))
+internal object GoliathFlag : BaseCompoundBetType(Goliath, SingleStakesAboutN(8))

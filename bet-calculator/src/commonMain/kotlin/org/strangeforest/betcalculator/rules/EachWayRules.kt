@@ -4,7 +4,7 @@ import org.strangeforest.betcalculator.core.*
 import org.strangeforest.betcalculator.rules.EachWayType.*
 import org.strangeforest.betcalculator.util.*
 
-class EachWayRules(val eachWayType: EachWayType, val placeTerms: PlaceTerms) : RankRules() {
+internal class EachWayRules(val eachWayType: EachWayType, val placeTerms: PlaceTerms) : RankRules() {
 
    init {
       require(eachWayType != EACH_WAY) { "eachWayType cannot be EACH_WAY" }

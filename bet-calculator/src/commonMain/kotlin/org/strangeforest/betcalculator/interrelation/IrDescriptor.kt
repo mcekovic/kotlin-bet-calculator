@@ -1,6 +1,6 @@
 package org.strangeforest.betcalculator.interrelation
 
-data class IrDescriptor(
+internal data class IrDescriptor(
    val selectionId: Comparable<*>,
    val marketId: Comparable<*>,
    val eventId: Comparable<*>,

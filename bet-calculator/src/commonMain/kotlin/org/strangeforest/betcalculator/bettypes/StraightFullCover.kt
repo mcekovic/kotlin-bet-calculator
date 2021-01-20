@@ -2,7 +2,7 @@ package org.strangeforest.betcalculator.bettypes
 
 import org.strangeforest.betcalculator.core.*
 
-open class StraightFullCover(val itemCount: Int) : BetType() {
+internal open class StraightFullCover(val itemCount: Int) : BetType() {
 
    init {
       requireItemCountAtLeast(itemCount, 1)
@@ -16,6 +16,6 @@ open class StraightFullCover(val itemCount: Int) : BetType() {
    }
 }
 
-object Fivespot : StraightFullCover(5)
-object Pontoon : StraightFullCover(6)
-object Magnificent7 : StraightFullCover(7)
+internal object Fivespot : StraightFullCover(5)
+internal object Pontoon : StraightFullCover(6)
+internal object Magnificent7 : StraightFullCover(7)

@@ -1,6 +1,6 @@
 package org.strangeforest.betcalculator.interrelation
 
-data class IrTag(
+internal data class IrTag(
    val outcomeTagSet: IrTagSet = IrTagSet.EMPTY,
    val depOutcomeTagSet: IrTagSet = IrTagSet.EMPTY,
    val groupTagSet: IrTagSet = IrTagSet.EMPTY,

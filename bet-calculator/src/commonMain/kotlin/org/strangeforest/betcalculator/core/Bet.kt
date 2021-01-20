@@ -3,7 +3,7 @@ package org.strangeforest.betcalculator.core
 import org.strangeforest.betcalculator.rules.*
 import org.strangeforest.betcalculator.util.*
 
-data class Bet(
+internal data class Bet(
    val betType: BetType,
    val unitStake: Decimal,
    val legs: List<BetLeg> = emptyList(),

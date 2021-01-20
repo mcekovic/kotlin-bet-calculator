@@ -1,6 +1,6 @@
 package org.strangeforest.betcalculator.interrelation
 
-class IrTagSet(val tags: Collection<String>) {
+internal class IrTagSet(val tags: Collection<String>) {
 
    constructor(vararg tags: String) : this(listOf<String>(*tags))
 

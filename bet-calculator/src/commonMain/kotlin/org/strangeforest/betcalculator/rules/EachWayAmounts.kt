@@ -2,7 +2,7 @@ package org.strangeforest.betcalculator.rules
 
 import org.strangeforest.betcalculator.util.*
 
-data class EachWayAmounts(val win: Decimal, val place: Decimal) {
+internal data class EachWayAmounts(val win: Decimal, val place: Decimal) {
 
 	constructor(win: String, place: String) : this(win.dec, place.dec)
 

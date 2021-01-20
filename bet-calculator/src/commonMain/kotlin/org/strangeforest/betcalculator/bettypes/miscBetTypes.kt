@@ -3,7 +3,7 @@ package org.strangeforest.betcalculator.bettypes
 import org.strangeforest.betcalculator.core.*
 import org.strangeforest.betcalculator.util.*
 
-object Alphabet : BetType() {
+internal object Alphabet : BetType() {
 
    override fun <T> combinations(items: List<T>): Sequence<Combination<T>> {
       requireItemsSize(items, 6)
@@ -16,10 +16,10 @@ object Alphabet : BetType() {
    }
 }
 
-object Fido : BaseCompoundBetType(StrictPermsN(2, 5), StrictPermsN(3, 5))
-object Sitter : BaseCompoundBetType(StrictPerms(2), StrictPerms(3))
+internal object Fido : BaseCompoundBetType(StrictPermsN(2, 5), StrictPermsN(3, 5))
+internal object Sitter : BaseCompoundBetType(StrictPerms(2), StrictPerms(3))
 
-object Poly : BetType() {
+internal object Poly : BetType() {
 
    override fun <T> combinations(items: List<T>): Sequence<Combination<T>> {
       requireItemsSize(items, 6)
@@ -38,7 +38,7 @@ object Poly : BetType() {
    }
 }
 
-object Lucky7Bingo : BetType() {
+internal object Lucky7Bingo : BetType() {
 
    override fun <T> combinations(items: List<T>): Sequence<Combination<T>> {
       requireItemsSize(items, 7)
@@ -60,9 +60,9 @@ object Lucky7Bingo : BetType() {
    }
 }
 
-object Mix : BaseCompoundBetType(Yankee, AccumulatorN(4))
+internal object Mix : BaseCompoundBetType(Yankee, AccumulatorN(4))
 
-object Sundial : BetType() {
+internal object Sundial : BetType() {
 
    override fun <T> combinations(items: List<T>): Sequence<Combination<T>> {
       requireItemsSize(items, 7)
@@ -73,7 +73,7 @@ object Sundial : BetType() {
    }
 }
 
-object TripleYankee : BetType() {
+internal object TripleYankee : BetType() {
 
    override fun <T> combinations(items: List<T>): Sequence<Combination<T>> {
       requireItemsSize(items, 6)
@@ -85,9 +85,9 @@ object TripleYankee : BetType() {
    }
 }
 
-object Arkle : BaseCompoundBetType(PermPatent, EachWayAccumulatorN(4))
+internal object Arkle : BaseCompoundBetType(PermPatent, EachWayAccumulatorN(4))
 
-object BookiesNightmare : BetType() {
+internal object BookiesNightmare : BetType() {
 
    override fun <T> combinations(items: List<T>): Sequence<Combination<T>> {
       requireItemsSize(items, 9)
@@ -102,13 +102,13 @@ object BookiesNightmare : BetType() {
    }
 }
 
-object BlanketYankee : BaseCompoundBetType(Flag, StrictPermsN(1, 4))
+internal object BlanketYankee : BaseCompoundBetType(Flag, StrictPermsN(1, 4))
 
-object Banko : BaseCompoundBetType(Trixie, Roundabout)
-object Comedy : BaseCompoundBetType(RoundRobin, Roundabout)
-object LiverpoolRoundTheClock : BaseCompoundBetType(Trixie, Roundabout, DoubleStakesAboutN(3))
+internal object Banko : BaseCompoundBetType(Trixie, Roundabout)
+internal object Comedy : BaseCompoundBetType(RoundRobin, Roundabout)
+internal object LiverpoolRoundTheClock : BaseCompoundBetType(Trixie, Roundabout, DoubleStakesAboutN(3))
 
-object DundeeShuffle : BaseCompoundBetType(
+internal object DundeeShuffle : BaseCompoundBetType(
    ReducedStakePermsAnyToComeSubTypeOfRestN(HALF, 1, 4, "0.25".dec, Trixie),
    ReducedStakePermsAnyToComeRestN(TWO, 2, 4, HALF),
    ReducedStakeStrictPermsN(3, 4, HALF),

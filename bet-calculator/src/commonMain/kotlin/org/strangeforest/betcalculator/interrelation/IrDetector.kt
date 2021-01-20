@@ -4,7 +4,7 @@ import kotlin.collections.set
 import org.strangeforest.betcalculator.core.*
 import org.strangeforest.betcalculator.interrelation.IrType.*
 
-class IrDetector {
+internal class IrDetector {
 
    private val irCache: MutableMap<IRKey, IrResult> = HashMap()
 

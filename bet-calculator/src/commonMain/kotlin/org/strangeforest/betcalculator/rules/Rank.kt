@@ -2,7 +2,7 @@ package org.strangeforest.betcalculator.rules
 
 import org.strangeforest.betcalculator.util.*
 
-data class Rank(val position: Int, val sharedAmong: Int = 1) {
+internal data class Rank(val position: Int, val sharedAmong: Int = 1) {
 
    init {
       require(position >= 0) { "position cannot be negative" }

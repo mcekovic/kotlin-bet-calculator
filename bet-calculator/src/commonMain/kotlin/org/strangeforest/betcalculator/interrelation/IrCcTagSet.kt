@@ -1,6 +1,6 @@
 package org.strangeforest.betcalculator.interrelation
 
-data class IrCcTagSet(val causeTags: IrTagSet, val consequenceTags: IrTagSet) {
+internal data class IrCcTagSet(val causeTags: IrTagSet, val consequenceTags: IrTagSet) {
 
    infix fun ccIntersects(ccTagSet: IrCcTagSet): Boolean = causeTags intersects ccTagSet.consequenceTags
 

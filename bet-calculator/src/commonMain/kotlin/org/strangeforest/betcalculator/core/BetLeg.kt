@@ -5,7 +5,7 @@ import org.strangeforest.betcalculator.rules.*
 import org.strangeforest.betcalculator.rules.EachWayType.*
 import org.strangeforest.betcalculator.util.*
 
-data class BetLeg(
+internal data class BetLeg(
    val price: Decimal,
    val status: LegStatus = LegStatus.OPEN,
    val irDescriptor: IrDescriptor = IrDescriptor.NO_IR,

@@ -3,20 +3,20 @@ package org.strangeforest.betcalculator
 import kotlin.js.*
 import org.strangeforest.betcalculator.util.dec
 
-typealias KBetCaptureCalculator = org.strangeforest.betcalculator.core.BetCaptureCalculator
-typealias KBetSettlementCalculator = org.strangeforest.betcalculator.core.BetSettlementCalculator
-typealias KBet = org.strangeforest.betcalculator.core.Bet
-typealias KBetTypes = org.strangeforest.betcalculator.bettypes.BetTypes
-typealias KBetLeg = org.strangeforest.betcalculator.core.BetLeg
-typealias KBetLegGroup = org.strangeforest.betcalculator.core.BetLegGroup
-typealias KBetRules = org.strangeforest.betcalculator.rules.BetRules
-typealias KEachWayType = org.strangeforest.betcalculator.rules.EachWayType
-typealias KEachWayFormula = org.strangeforest.betcalculator.rules.EachWayFormula
-typealias KLegStatus = org.strangeforest.betcalculator.core.LegStatus
-typealias KIRDescriptor = org.strangeforest.betcalculator.interrelation.IrDescriptor
-typealias KIRTag = org.strangeforest.betcalculator.interrelation.IrTag
-typealias KBetCaptureResult = org.strangeforest.betcalculator.core.BetCaptureResult
-typealias KBetSettlementResult = org.strangeforest.betcalculator.core.BetSettlementResult
+internal typealias KBetCaptureCalculator = org.strangeforest.betcalculator.core.BetCaptureCalculator
+internal typealias KBetSettlementCalculator = org.strangeforest.betcalculator.core.BetSettlementCalculator
+internal typealias KBet = org.strangeforest.betcalculator.core.Bet
+internal typealias KBetTypes = org.strangeforest.betcalculator.bettypes.BetTypes
+internal typealias KBetLeg = org.strangeforest.betcalculator.core.BetLeg
+internal typealias KBetLegGroup = org.strangeforest.betcalculator.core.BetLegGroup
+internal typealias KBetRules = org.strangeforest.betcalculator.rules.BetRules
+internal typealias KEachWayType = org.strangeforest.betcalculator.rules.EachWayType
+internal typealias KEachWayFormula = org.strangeforest.betcalculator.rules.EachWayFormula
+internal typealias KLegStatus = org.strangeforest.betcalculator.core.LegStatus
+internal typealias KIRDescriptor = org.strangeforest.betcalculator.interrelation.IrDescriptor
+internal typealias KIRTag = org.strangeforest.betcalculator.interrelation.IrTag
+internal typealias KBetCaptureResult = org.strangeforest.betcalculator.core.BetCaptureResult
+internal typealias KBetSettlementResult = org.strangeforest.betcalculator.core.BetSettlementResult
 
 class Bet(
    val betType: String,

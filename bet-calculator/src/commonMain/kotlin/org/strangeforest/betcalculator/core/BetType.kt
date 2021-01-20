@@ -3,7 +3,7 @@ package org.strangeforest.betcalculator.core
 import org.strangeforest.betcalculator.rules.*
 import org.strangeforest.betcalculator.util.*
 
-abstract class BetType(val canSkipUnits: Boolean = false) {
+internal abstract class BetType(val canSkipUnits: Boolean = false) {
 
    abstract fun <T> combinations(items: List<T>): Sequence<Combination<T>>
 

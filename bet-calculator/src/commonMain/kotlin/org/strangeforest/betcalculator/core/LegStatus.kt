@@ -4,7 +4,7 @@ import org.strangeforest.betcalculator.rules.*
 import org.strangeforest.betcalculator.rules.EachWayType.*
 import org.strangeforest.betcalculator.util.*
 
-data class LegStatus(
+internal data class LegStatus(
    val winFactor: Decimal,
    val voidFactor: Decimal,
    val placeOddsFactor: Decimal = ONE,

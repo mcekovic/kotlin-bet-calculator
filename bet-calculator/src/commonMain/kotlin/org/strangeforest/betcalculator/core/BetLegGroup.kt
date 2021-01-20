@@ -1,6 +1,6 @@
 package org.strangeforest.betcalculator.core
 
-data class BetLegGroup(
+internal data class BetLegGroup(
    val betType: BetType,
    val legs: List<BetLeg>,
    override val banker: Boolean = false

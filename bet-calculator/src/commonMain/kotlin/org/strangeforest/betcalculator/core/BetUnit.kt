@@ -7,7 +7,7 @@ import org.strangeforest.betcalculator.rules.EachWayFormula.*
 import org.strangeforest.betcalculator.rules.EachWayType.*
 import org.strangeforest.betcalculator.util.*
 
-open class BetUnit(
+internal open class BetUnit(
    val unitStake: Decimal,
    val legs: List<BetLeg>,
    val betType: BetType = Accumulator,

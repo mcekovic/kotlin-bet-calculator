@@ -3,7 +3,7 @@ package org.strangeforest.betcalculator.core
 import org.strangeforest.betcalculator.interrelation.*
 import org.strangeforest.betcalculator.interrelation.IrType.*
 
-sealed class BetCalculator<BR : BetResult<BR>> {
+internal sealed class BetCalculator<BR : BetResult<BR>> {
 
    private val irDetector = IrDetector()
 
@@ -18,12 +18,12 @@ sealed class BetCalculator<BR : BetResult<BR>> {
    }
 }
 
-object BetCaptureCalculator : BetCalculator<BetCaptureResult>() {
+internal object BetCaptureCalculator : BetCalculator<BetCaptureResult>() {
 
    override fun unitResult(unit: BetUnit): BetCaptureResult = BetCaptureResult(unit.unitCount, unit.stake, unit.maxReturn, unit.state)
 }
 
-object BetSettlementCalculator : BetCalculator<BetSettlementResult>() {
+internal object BetSettlementCalculator : BetCalculator<BetSettlementResult>() {
 
    override fun unitResult(unit: BetUnit): BetSettlementResult = BetSettlementResult(unit.currentReturn, unit.maxReturn, unit.state)
 }
