@@ -6,7 +6,7 @@ import org.strangeforest.betcalculator.*;
 import static org.assertj.core.api.Assertions.*;
 import static org.strangeforest.betcalculator.BetCalculatorKt.*;
 
-class BetCaptureCalculationTest {
+class JavaBetCaptureCalculationTest {
 
 	@Test
 	void calculateSingleBet() {
