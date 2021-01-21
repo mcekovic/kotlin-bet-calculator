@@ -25,5 +25,8 @@ internal object BetCaptureCalculator : BetCalculator<BetCaptureResult>() {
 
 internal object BetSettlementCalculator : BetCalculator<BetSettlementResult>() {
 
-   override fun unitResult(unit: BetUnit): BetSettlementResult = BetSettlementResult(unit.currentReturn, unit.maxReturn, unit.state)
+   override fun unitResult(unit: BetUnit): BetSettlementResult = BetSettlementResult(
+      unit.openUnitCount, unit.wonUnitCount, unit.voidUnitCount, unit.lostUnitCount,
+      unit.currentReturn, unit.maxReturn, unit.state
+   )
 }

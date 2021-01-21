@@ -22,6 +22,18 @@ internal open class BetUnit(
       unitCountFactor * rules.eachWayType.unitCount
    }
 
+   val openUnitCount: Decimal
+      get() = if (state == OPEN) unitCount else ZERO
+
+   val wonUnitCount: Decimal
+      get() = if (state == WON) unitCount else ZERO
+
+   val voidUnitCount: Decimal
+      get() = if (state == VOID) unitCount else ZERO
+
+   val lostUnitCount: Decimal
+      get() = if (state == LOST) unitCount else ZERO
+
    val stake: Decimal by lazy {
       unitCount * unitStake
    }

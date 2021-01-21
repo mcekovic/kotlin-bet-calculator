@@ -24,12 +24,23 @@ internal data class BetCaptureResult(
 }
 
 internal data class BetSettlementResult(
+   val openUnitCount: Decimal,
+   val wonUnitCount: Decimal,
+   val voidUnitCount: Decimal,
+   val lostUnitCount: Decimal,
    val currentReturn: Decimal,
    val maxReturn: Decimal,
    val state: BetState = OPEN
 ) : BetResult<BetSettlementResult> {
 
+   val unitCount: Decimal
+      get() = openUnitCount + wonUnitCount + voidUnitCount + lostUnitCount
+
    override operator fun plus(other: BetSettlementResult): BetSettlementResult = BetSettlementResult(
+      openUnitCount + other.openUnitCount,
+      wonUnitCount + other.wonUnitCount,
+      voidUnitCount + other.voidUnitCount,
+      lostUnitCount + other.lostUnitCount,
       currentReturn + other.currentReturn,
       maxReturn + other.maxReturn,
       state + other.state

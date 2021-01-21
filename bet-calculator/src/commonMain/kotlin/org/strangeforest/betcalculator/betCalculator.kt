@@ -73,6 +73,10 @@ data class BetCaptureResult(
 )
 
 data class BetSettlementResult(
+   val openUnitCount: String,
+   val wonUnitCount: String,
+   val voidUnitCount: String,
+   val lostUnitCount: String,
    val currentReturn: String,
    val maxReturn: String,
    val state: String
@@ -138,6 +142,10 @@ private fun fromBetCaptureResult(result: KBetCaptureResult) = BetCaptureResult(
 )
 
 private fun fromBetSettlementResult(result: KBetSettlementResult) = BetSettlementResult(
+   result.openUnitCount.toString(),
+   result.wonUnitCount.toString(),
+   result.voidUnitCount.toString(),
+   result.lostUnitCount.toString(),
    result.currentReturn.toString(),
    result.maxReturn.toString(),
    result.state.toString()

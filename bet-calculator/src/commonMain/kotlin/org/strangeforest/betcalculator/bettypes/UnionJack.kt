@@ -24,6 +24,6 @@ internal sealed class BaseUnionJack(private val betType: BetType) : BetType() {
 internal object UnionJack : BaseUnionJack(Treble)
 internal object UnionJackTreble : BaseUnionJack(Treble)
 internal object UnionJackTrixie : BaseUnionJack(Trixie)
-internal object UnionJackTriplePlus : BaseUnionJack(CompoundBetType(Trixie, Treble))
+internal object UnionJackTriplePlus : BaseUnionJack(Trixie + Treble)
 internal object UnionJackPatent : BaseUnionJack(Patent)
 internal object UnionJackRoundRobin : BaseUnionJack(RoundRobin)
