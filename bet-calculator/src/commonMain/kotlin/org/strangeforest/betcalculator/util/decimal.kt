@@ -1,7 +1,8 @@
 package org.strangeforest.betcalculator.util
 
-expect class Decimal(value: String) : Comparable<Decimal> {
+expect class Decimal : Comparable<Decimal> {
 
+   constructor(value: String)
    constructor(value: Int)
    constructor(value: Double)
 
@@ -14,6 +15,7 @@ expect class Decimal(value: String) : Comparable<Decimal> {
 
    override fun equals(other: Any?): Boolean
    override fun hashCode(): Int
+   override fun compareTo(other: Decimal): Int
    override fun toString(): String
 }
 

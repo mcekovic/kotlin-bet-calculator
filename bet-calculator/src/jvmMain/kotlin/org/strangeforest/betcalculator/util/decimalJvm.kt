@@ -20,6 +20,6 @@ actual class Decimal(private val value: BigDecimal) : Comparable<Decimal> {
 
    actual override fun equals(other: Any?): Boolean = this === other || (other is Decimal && value == other.value)
    actual override fun hashCode(): Int = value.hashCode()
-   override fun compareTo(other: Decimal): Int = value.compareTo(other.value)
+   actual override fun compareTo(other: Decimal): Int = value.compareTo(other.value)
    actual override fun toString(): String = value.toString()
 }
