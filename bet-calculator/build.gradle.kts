@@ -31,8 +31,11 @@ kotlin {
     }
     val hostOs = System.getProperty("os.name")
     when {
-        hostOs == "Mac OS X" -> macosX64("native")
-        hostOs == "Linux" -> linuxX64("native")
+        hostOs == "Linux" -> linuxX64("native") {
+            binaries {
+                sharedLib()
+            }
+        }
         hostOs.startsWith("Windows") -> mingwX64("native") {
             binaries {
                 sharedLib()

@@ -35,11 +35,23 @@ class BetLeg(
    var banker: Boolean = false
 }
 
+class BetLegs {
+   private val legs = ArrayList<BetLeg>()
+   fun add(leg: BetLeg) { legs += leg }
+   fun toArray() = legs.toTypedArray()
+}
+
 class BetLegGroup(
    val betType: String,
    val legs: Array<BetLeg>
 ) {
    var banker: Boolean = false
+}
+
+class BetLegGroups {
+   private val groups = ArrayList<BetLegGroup>()
+   fun add(group: BetLegGroup) { groups += group }
+   fun toArray() = groups.toTypedArray()
 }
 
 class BetRules() {
