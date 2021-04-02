@@ -20,26 +20,26 @@ internal class BetCaptureCalculationTest {
    @Test
    fun calculateAccumulatorBet() {
       val bet = Bet(
-         "Accumulator", "2", arrayOf(
+         "Accumulator", "5", arrayOf(
             BetLeg("2.0"),
             BetLeg("3.0")
          )
       )
       val result = calculateCapture(bet)
-      assertThat(result.maxReturn).isEqualTo("12.00")
+      assertThat(result.maxReturn).isEqualTo("30.00")
    }
 
    @Test
    fun calculateDoublesBet() {
       val bet = Bet(
-         "Doubles", "1", arrayOf(
+         "Doubles", "2", arrayOf(
             BetLeg("2.0"),
             BetLeg("3.0"),
             BetLeg("4.0")
          )
       )
       val result = calculateCapture(bet)
-      assertThat(result.maxReturn).isEqualTo("26.00")
+      assertThat(result.maxReturn).isEqualTo("52.00")
    }
 
    @Test
