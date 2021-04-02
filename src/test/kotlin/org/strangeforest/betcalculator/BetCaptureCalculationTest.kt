@@ -71,4 +71,25 @@ internal class BetCaptureCalculationTest {
       val result = calculateCapture(bet)
       assertThat(result.maxReturn).isEqualTo("1662209157.7375774976")
    }
+
+   @Test
+   fun calculatePermsBetWithAccumulatorGroups() {
+      val bet = Bet("Perms2", "1", emptyArray())
+      bet.groups = arrayOf(
+         BetLegGroup("Accumulator", arrayOf(
+            BetLeg("2"),
+            BetLeg("3")
+         )),
+         BetLegGroup("Accumulator", arrayOf(
+            BetLeg("4")
+         )),
+         BetLegGroup("Accumulator", arrayOf(
+            BetLeg("5")
+         ))
+      )
+
+      val result = calculateCapture(bet)
+
+      assertThat(result.maxReturn).isEqualTo("74")
+   }
 }
