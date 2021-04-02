@@ -54,7 +54,7 @@ class BetLegGroups {
    fun toArray() = groups.toTypedArray()
 }
 
-class BetRules() {
+class BetRules {
    var eachWayType: String = KEachWayType.WIN.toString()
    var eachWayFormula: String = KEachWayFormula.WIN_PLACE.toString()
    var eachWayAnyToComeFormula: String = KEachWayFormula.EQUALLY_DIVIDED.toString()
@@ -73,7 +73,7 @@ class IrDescriptor(
    val marketId: Comparable<*>,
    val eventId: Comparable<*>
 ) {
-   var maxWinners: Int = 1
+   var maxWinners: Int? = 1
    var tag: String = ""
 }
 

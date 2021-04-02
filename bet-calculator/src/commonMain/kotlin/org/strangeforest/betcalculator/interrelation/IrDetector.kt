@@ -77,7 +77,7 @@ internal class IrDetector {
             val desc = leg.irDescriptor
             val marketId = desc.marketId
             val maxWinners = desc.maxWinners
-            if (maxWinners > 1) {
+            if (maxWinners != null && maxWinners > 1) {
                if (marketCounts == null)
                   marketCounts = HashMap()
                var marketCount = marketCounts[marketId]

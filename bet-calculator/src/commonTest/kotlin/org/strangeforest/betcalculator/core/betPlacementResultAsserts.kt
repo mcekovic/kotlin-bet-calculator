@@ -8,8 +8,17 @@ internal fun Assert<BetCaptureResult>.unitCount() = prop(BetCaptureResult::unitC
 internal fun Assert<BetCaptureResult>.stake() = prop(BetCaptureResult::stake)
 internal fun Assert<BetCaptureResult>.maxReturn() = prop(BetCaptureResult::maxReturn)
 
-internal fun Assert<BetCaptureResult>.isResult(unitCount: Int, stake: String, maxReturn: String) {
+internal fun Assert<BetCaptureResult>.hasUnitCount(unitCount: Int): Assert<BetCaptureResult> {
    unitCount().isEqualByComparingTo(unitCount.dec)
+   return this
+}
+
+internal fun Assert<BetCaptureResult>.hasStake(stake: String): Assert<BetCaptureResult> {
    stake().isEqualByComparingTo(stake)
+   return this
+}
+
+internal fun Assert<BetCaptureResult>.hasMaxReturn(maxReturn: String): Assert<BetCaptureResult> {
    maxReturn().isEqualByComparingTo(maxReturn)
+   return this
 }
