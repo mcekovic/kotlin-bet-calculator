@@ -4,7 +4,7 @@ import kotlin.test.*
 import assertk.*
 import assertk.assertions.*
 
-internal class BetCaptureCalculationTest {
+internal class BetCalculationTest {
 
    @Test
    fun calculateSingleBet() {
@@ -20,26 +20,26 @@ internal class BetCaptureCalculationTest {
    @Test
    fun calculateAccumulatorBet() {
       val bet = Bet(
-         "Accumulator", "2", arrayOf(
+         "Accumulator", "5", arrayOf(
             BetLeg("2.0"),
             BetLeg("3.0")
          )
       )
       val result = calculateCapture(bet)
-      assertThat(result.maxReturn).isEqualTo("12.00")
+      assertThat(result.maxReturn).isEqualTo("30.00")
    }
 
    @Test
    fun calculateDoublesBet() {
       val bet = Bet(
-         "Doubles", "1", arrayOf(
+         "Doubles", "2", arrayOf(
             BetLeg("2.0"),
             BetLeg("3.0"),
             BetLeg("4.0")
          )
       )
       val result = calculateCapture(bet)
-      assertThat(result.maxReturn).isEqualTo("26.00")
+      assertThat(result.maxReturn).isEqualTo("52.00")
    }
 
    @Test
@@ -69,6 +69,7 @@ internal class BetCaptureCalculationTest {
          )
       )
       val result = calculateCapture(bet)
+      assertThat(result.unitCount).isEqualTo("184756")
       assertThat(result.maxReturn).isEqualTo("1662209157.7375774976")
    }
 
@@ -108,5 +109,19 @@ internal class BetCaptureCalculationTest {
       val result = calculateCapture(bet)
 
       assertThat(result.maxReturn).isEqualTo("35.00")
+   }
+
+   @Test
+   fun wonSingeBetIsCalculated() {
+      val leg = BetLeg("2")
+      leg.status = LegStatus("1", "0")
+      leg.status?.resulted = true
+      val bet = Bet("Single", "10", arrayOf(leg))
+
+      val result = calculateSettlement(bet)
+
+      assertThat(result.currentReturn).isEqualTo("20")
+      assertThat(result.state).isEqualTo("WON")
+      assertThat(result.wonUnitCount).isEqualTo("1")
    }
 }
