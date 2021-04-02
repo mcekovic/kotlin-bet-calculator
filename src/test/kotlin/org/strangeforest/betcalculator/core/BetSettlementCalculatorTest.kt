@@ -14,6 +14,7 @@ class BetSettlementCalculatorTest {
       val result = BetSettlementCalculator.calculate(bet)
 
       assertThat(result).hasCurrentReturn("20").hasMaxReturn("20").hasState(WON)
+         .hasWonUnitCount(1).hasVoidUnitCount(0).hasLostUnitCount(0)
    }
 
    @Test
@@ -27,6 +28,7 @@ class BetSettlementCalculatorTest {
       val result = BetSettlementCalculator.calculate(bet)
 
       assertThat(result).hasCurrentReturn("4").hasMaxReturn("4").hasState(WON)
+         .hasWonUnitCount(1).hasVoidUnitCount(0).hasLostUnitCount(2)
    }
 
    @Test
@@ -40,6 +42,7 @@ class BetSettlementCalculatorTest {
       val result = BetSettlementCalculator.calculate(bet)
 
       assertThat(result).hasCurrentReturn("1").hasMaxReturn("1").hasState(VOID)
+         .hasWonUnitCount(0).hasVoidUnitCount(1).hasLostUnitCount(2)
    }
 
    @Test
@@ -53,5 +56,6 @@ class BetSettlementCalculatorTest {
       val result = BetSettlementCalculator.calculate(bet)
 
       assertThat(result).hasCurrentReturn("5").hasMaxReturn("29").hasState(OPEN)
+         .hasWonUnitCount(2).hasVoidUnitCount(1).hasLostUnitCount(0)
    }
 }

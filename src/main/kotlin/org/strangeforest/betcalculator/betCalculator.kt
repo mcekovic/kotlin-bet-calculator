@@ -12,8 +12,8 @@ internal typealias KBetRules = org.strangeforest.betcalculator.rules.BetRules
 internal typealias KEachWayType = org.strangeforest.betcalculator.rules.EachWayType
 internal typealias KEachWayFormula = org.strangeforest.betcalculator.rules.EachWayFormula
 internal typealias KLegStatus = org.strangeforest.betcalculator.core.LegStatus
-internal typealias KIRDescriptor = org.strangeforest.betcalculator.interrelation.IrDescriptor
-internal typealias KIRTag = org.strangeforest.betcalculator.interrelation.IrTag
+internal typealias KIrDescriptor = org.strangeforest.betcalculator.interrelation.IrDescriptor
+internal typealias KIrTag = org.strangeforest.betcalculator.interrelation.IrTag
 internal typealias KBetCaptureResult = org.strangeforest.betcalculator.core.BetCaptureResult
 internal typealias KBetSettlementResult = org.strangeforest.betcalculator.core.BetSettlementResult
 
@@ -123,12 +123,12 @@ private fun toLegStatus(status: LegStatus?) = if (status == null) KLegStatus.OPE
    status.resulted
 )
 
-private fun toIrDescriptor(descriptor: IrDescriptor?) = if (descriptor == null) KIRDescriptor.NO_IR else KIRDescriptor(
+private fun toIrDescriptor(descriptor: IrDescriptor?) = if (descriptor == null) KIrDescriptor.NO_IR else KIrDescriptor(
    descriptor.selectionId,
    descriptor.marketId,
    descriptor.eventId,
    descriptor.maxWinners,
-   KIRTag.of(descriptor.tag)
+   KIrTag.of(descriptor.tag)
 )
 
 private fun fromBetCaptureResult(result: KBetCaptureResult) = BetCaptureResult(
