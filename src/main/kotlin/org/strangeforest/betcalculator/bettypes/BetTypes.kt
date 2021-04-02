@@ -1,8 +1,8 @@
 package org.strangeforest.betcalculator.bettypes
 
-import org.strangeforest.betcalculator.*
+import org.strangeforest.betcalculator.core.*
 
-object BetTypes {
+internal object BetTypes {
 
    private val betTypes = HashMap<String, BetType>()
 

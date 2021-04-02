@@ -1,9 +1,9 @@
 package org.strangeforest.betcalculator.bettypes
 
-import org.strangeforest.betcalculator.*
+import org.strangeforest.betcalculator.core.*
 import org.strangeforest.betcalculator.util.*
 
-open class PermedSubType(val subBetType: BetType, val subTypeItemCount: Int) : BetType() {
+internal open class PermedSubType(val subBetType: BetType, val subTypeItemCount: Int) : BetType() {
 
    init {
       require(subTypeItemCount > 0) { "subTypeItemCount must be positive" }
@@ -17,6 +17,6 @@ open class PermedSubType(val subBetType: BetType, val subTypeItemCount: Int) : B
    }
 }
 
-object PermPatent : PermedSubType(Patent, 3)
-object PermYankee : PermedSubType(Yankee, 4)
-object PermRoundRobin : PermedSubType(RoundRobin, 3)
+internal object PermPatent : PermedSubType(Patent, 3)
+internal object PermYankee : PermedSubType(Yankee, 4)
+internal object PermRoundRobin : PermedSubType(RoundRobin, 3)

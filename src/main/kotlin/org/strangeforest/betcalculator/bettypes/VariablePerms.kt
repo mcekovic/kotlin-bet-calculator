@@ -1,9 +1,9 @@
 package org.strangeforest.betcalculator.bettypes
 
-import org.strangeforest.betcalculator.*
+import org.strangeforest.betcalculator.core.*
 import org.strangeforest.betcalculator.util.*
 
-abstract class BaseVariablePerms(val fromCombinationSize: Int, val toCombinationSize: Int, canSkipUnits: Boolean = true) : BetType(canSkipUnits) {
+internal abstract class BaseVariablePerms(val fromCombinationSize: Int, val toCombinationSize: Int, canSkipUnits: Boolean = true) : BetType(canSkipUnits) {
 
    init {
       require(fromCombinationSize > 0) { "fromCombinationSize must be positive" }
@@ -18,12 +18,12 @@ abstract class BaseVariablePerms(val fromCombinationSize: Int, val toCombination
    }
 }
 
-class VariablePerms(minUnitSize: Int, maxUnitSize: Int) : BaseVariablePerms(minUnitSize, maxUnitSize) {
+internal class VariablePerms(minUnitSize: Int, maxUnitSize: Int) : BaseVariablePerms(minUnitSize, maxUnitSize) {
 
    override fun toString(): String = "Perms$fromCombinationSize-$toCombinationSize"
 }
 
-class StrictVariablePerms(minUnitSize: Int, maxUnitSize: Int) : BaseVariablePerms(minUnitSize, maxUnitSize, false) {
+internal class StrictVariablePerms(minUnitSize: Int, maxUnitSize: Int) : BaseVariablePerms(minUnitSize, maxUnitSize, false) {
 
    override fun toString(): String = "StrictPerms$fromCombinationSize-$toCombinationSize"
 }

@@ -1,8 +1,8 @@
 package org.strangeforest.betcalculator.bettypes
 
-import org.strangeforest.betcalculator.*
+import org.strangeforest.betcalculator.core.*
 
-sealed class BaseUnionJack(private val betType: BetType) : BetType() {
+internal sealed class BaseUnionJack(private val betType: BetType) : BetType() {
 
    override fun <T> combinations(items: List<T>): Sequence<Combination<T>> {
       requireItemsSize(items, 9)
@@ -21,9 +21,9 @@ sealed class BaseUnionJack(private val betType: BetType) : BetType() {
    }
 }
 
-object UnionJack : BaseUnionJack(Treble)
-object UnionJackTreble : BaseUnionJack(Treble)
-object UnionJackTrixie : BaseUnionJack(Trixie)
-object UnionJackTriplePlus : BaseUnionJack(CompoundBetType(Trixie, Treble))
-object UnionJackPatent : BaseUnionJack(Patent)
-object UnionJackRoundRobin : BaseUnionJack(RoundRobin)
+internal object UnionJack : BaseUnionJack(Treble)
+internal object UnionJackTreble : BaseUnionJack(Treble)
+internal object UnionJackTrixie : BaseUnionJack(Trixie)
+internal object UnionJackTriplePlus : BaseUnionJack(Trixie + Treble)
+internal object UnionJackPatent : BaseUnionJack(Patent)
+internal object UnionJackRoundRobin : BaseUnionJack(RoundRobin)

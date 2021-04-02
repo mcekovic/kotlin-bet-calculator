@@ -2,7 +2,7 @@ package org.strangeforest.betcalculator.rules
 
 import org.strangeforest.betcalculator.util.*
 
-data class PlaceTerms(val places: Int, val reduction: Decimal) {
+internal data class PlaceTerms(val places: Int, val reduction: Decimal) {
 
    init {
       require(places > 0) { "places must be positive" }

@@ -1,6 +1,6 @@
 package org.strangeforest.betcalculator.util
 
-class Combinations<T>(private val items: List<T>, private val length: Int) : Iterator<List<T>> {
+internal class Combinations<T>(private val items: List<T>, private val length: Int) : Iterator<List<T>> {
 
    private val variableCount = items.size - length
    private val indexes: IntArray

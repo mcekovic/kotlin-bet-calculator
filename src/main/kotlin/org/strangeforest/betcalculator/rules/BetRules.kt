@@ -3,7 +3,7 @@ package org.strangeforest.betcalculator.rules
 import org.strangeforest.betcalculator.rules.EachWayFormula.*
 import org.strangeforest.betcalculator.rules.EachWayType.*
 
-data class BetRules(
+internal data class BetRules(
 	val eachWayType: EachWayType = WIN,
 	val eachWayFormula: EachWayFormula = WIN_PLACE,
 	val eachWayAnyToComeFormula: EachWayFormula = EQUALLY_DIVIDED

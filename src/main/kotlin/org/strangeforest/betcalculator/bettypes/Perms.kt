@@ -1,10 +1,10 @@
 package org.strangeforest.betcalculator.bettypes
 
-import org.strangeforest.betcalculator.*
+import org.strangeforest.betcalculator.core.*
 import org.strangeforest.betcalculator.rules.*
 import org.strangeforest.betcalculator.util.*
 
-abstract class BasePerms(protected val combinationSize: Int, canSkipUnits: Boolean = true) : BetType(canSkipUnits) {
+internal abstract class BasePerms(protected val combinationSize: Int, canSkipUnits: Boolean = true) : BetType(canSkipUnits) {
 
    init {
       require(combinationSize > 0) { "combinationSize must be positive" }
@@ -16,17 +16,17 @@ abstract class BasePerms(protected val combinationSize: Int, canSkipUnits: Boole
    }
 }
 
-class Perms(unitSize: Int) : BasePerms(unitSize) {
+internal class Perms(unitSize: Int) : BasePerms(unitSize) {
 
    override fun toString(): String = super.toString() + combinationSize
 }
 
-open class StrictPerms(unitSize: Int) : BasePerms(unitSize, false) {
+internal open class StrictPerms(unitSize: Int) : BasePerms(unitSize, false) {
 
    override fun toString(): String = super.toString() + combinationSize
 }
 
-open class StrictPermsN(unitSize: Int, val itemCount: Int) : StrictPerms(unitSize) {
+internal open class StrictPermsN(unitSize: Int, val itemCount: Int) : StrictPerms(unitSize) {
 
    init {
       requireItemCountAtLeast(itemCount, unitSize)
@@ -38,7 +38,7 @@ open class StrictPermsN(unitSize: Int, val itemCount: Int) : StrictPerms(unitSiz
    }
 }
 
-class ReducedStakeStrictPermsN(unitSize: Int, itemCount: Int, val unitCountFactor: Decimal) : StrictPermsN(unitSize, itemCount) {
+internal class ReducedStakeStrictPermsN(unitSize: Int, itemCount: Int, val unitCountFactor: Decimal) : StrictPermsN(unitSize, itemCount) {
 
    init {
       validateUnitCountFactor(unitCountFactor)
@@ -48,11 +48,11 @@ class ReducedStakeStrictPermsN(unitSize: Int, itemCount: Int, val unitCountFacto
       BetUnit(unitStake, legs, this, rules, unitCountFactor)
 }
 
-object Singles : BasePerms(1)
-object Doubles : BasePerms(2)
-object Trebles : BasePerms(3)
-object Fourfolds : BasePerms(4)
-object Fivefolds : BasePerms(5)
-object Sixfolds : BasePerms(6)
-object Sevenfolds : BasePerms(7)
-object Eightfolds : BasePerms(8)
+internal object Singles : BasePerms(1)
+internal object Doubles : BasePerms(2)
+internal object Trebles : BasePerms(3)
+internal object Fourfolds : BasePerms(4)
+internal object Fivefolds : BasePerms(5)
+internal object Sixfolds : BasePerms(6)
+internal object Sevenfolds : BasePerms(7)
+internal object Eightfolds : BasePerms(8)

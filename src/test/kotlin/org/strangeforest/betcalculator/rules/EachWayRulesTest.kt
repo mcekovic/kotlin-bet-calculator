@@ -3,7 +3,7 @@ package org.strangeforest.betcalculator.rules
 import kotlin.test.*
 import assertk.*
 import assertk.assertions.*
-import org.strangeforest.betcalculator.*
+import org.strangeforest.betcalculator.core.*
 import org.strangeforest.betcalculator.interrelation.*
 import org.strangeforest.betcalculator.rules.EachWayType.*
 
@@ -18,7 +18,7 @@ class EachWayRulesTest {
    @Test
    fun resultedStatusTest() {
       val leg = BetLeg("2")
-      val multiWinnerLeg = BetLeg("2", irDescriptor = IRDescriptor(1, 1, 1, 2))
+      val multiWinnerLeg = BetLeg("2", irDescriptor = IrDescriptor(1, 1, 1, 2))
       assertThat(EachWayRules(WIN, PlaceTerms(4, "5")).resultedStatus(leg, Rank(1, 1))).isEqualTo(LegStatus.WON)
       assertThat(EachWayRules(PLACE, PlaceTerms(4, "5")).resultedStatus(leg, Rank(2, 1))).isEqualTo(LegStatus.won("0.2"))
       assertThat(EachWayRules(WIN, PlaceTerms(4, "5")).resultedStatus(leg, Rank(2, 1))).isEqualTo(LegStatus.LOST)

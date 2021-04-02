@@ -1,10 +1,10 @@
 package org.strangeforest.betcalculator.bettypes
 
-import org.strangeforest.betcalculator.*
+import org.strangeforest.betcalculator.core.*
 import org.strangeforest.betcalculator.rules.*
 import org.strangeforest.betcalculator.util.*
 
-open class Lap(val stakeFactorCarriedForward: Decimal) : BetType() {
+internal open class Lap(val stakeFactorCarriedForward: Decimal) : BetType() {
 
    init {
       validateStakeFactorCarriedForward(stakeFactorCarriedForward)
@@ -20,5 +20,5 @@ open class Lap(val stakeFactorCarriedForward: Decimal) : BetType() {
       AnyToComeUnit(unitStake, legs, this, rules, ONE, stakeFactorCarriedForward)
 }
 
-object SingleLap : Lap(ONE)
-object DoubleLap : Lap(TWO)
+internal object SingleLap : Lap(ONE)
+internal object DoubleLap : Lap(TWO)

@@ -1,9 +1,9 @@
 package org.strangeforest.betcalculator.rules
 
-import org.strangeforest.betcalculator.*
+import org.strangeforest.betcalculator.core.*
 import org.strangeforest.betcalculator.util.*
 
-open class RankRules : LegRules<Rank> {
+internal open class RankRules : LegRules<Rank> {
 
    override fun resultedStatus(leg: BetLeg, result: Rank): LegStatus =
       if (result != Rank.NON_RUNNER)
