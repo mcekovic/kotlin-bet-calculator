@@ -10,13 +10,11 @@ class InterrelationDetectionTest {
 
    @Test
    fun interrelatedSelectionsAreDetected() {
-      val bet = Bet(
-         Patent, "1", listOf(
-            BetLeg("2", irDescriptor = IrDescriptor(111, 11, 1)),
-            BetLeg("3", irDescriptor = IrDescriptor(111, 11, 1)),
-            BetLeg("4", irDescriptor = IrDescriptor(121, 12, 1))
-         )
-      )
+      val bet = Bet(Patent, "1", listOf(
+         BetLeg("2", irDescriptor = IrDescriptor(111, 11, 1)),
+         BetLeg("3", irDescriptor = IrDescriptor(111, 11, 1)),
+         BetLeg("4", irDescriptor = IrDescriptor(121, 12, 1))
+      ))
 
       assertFailsWith<IrSelectionsException> {
          BetCaptureCalculator.calculate(bet)
@@ -25,13 +23,11 @@ class InterrelationDetectionTest {
 
    @Test
    fun maxWinnersViolationIsDetected() {
-      val bet = Bet(
-         Patent, "1", listOf(
-            BetLeg("2", irDescriptor = IrDescriptor(111, 11, 1, 2)),
-            BetLeg("3", irDescriptor = IrDescriptor(112, 11, 1, 2)),
-            BetLeg("4", irDescriptor = IrDescriptor(113, 11, 1, 2))
-         )
-      )
+      val bet = Bet(Patent, "1", listOf(
+         BetLeg("2", irDescriptor = IrDescriptor(111, 11, 1, 2)),
+         BetLeg("3", irDescriptor = IrDescriptor(112, 11, 1, 2)),
+         BetLeg("4", irDescriptor = IrDescriptor(113, 11, 1, 2))
+      ))
 
       assertFailsWith<MaxWinnersViolationException> {
          BetCaptureCalculator.calculate(bet)
@@ -40,30 +36,24 @@ class InterrelationDetectionTest {
 
    @Test
    fun unitsWithInterrelatedSelectionsAreSkipped() {
-      val bet = Bet(
-         Doubles, "1", listOf(
-            BetLeg("2", irDescriptor = IrDescriptor(111, 11, 1)),
-            BetLeg("3", irDescriptor = IrDescriptor(111, 11, 1)),
-            BetLeg("4", irDescriptor = IrDescriptor(121, 12, 1))
-         )
-      )
+      val bet = Bet(Doubles, "1", listOf(
+         BetLeg("2", irDescriptor = IrDescriptor(111, 11, 1)),
+         BetLeg("3", irDescriptor = IrDescriptor(111, 11, 1)),
+         BetLeg("4", irDescriptor = IrDescriptor(121, 12, 1))
+      ))
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).hasUnitCount(2)
-         .hasStake("2")
-         .hasMaxReturn("20")
+      assertThat(result).hasUnitCount(2).hasStake("2").hasMaxReturn("20")
    }
 
    @Test
    fun betWithAllUnitsWithInterrelatedSelectionsIsDetected() {
-      val bet = Bet(
-         Doubles, "1", listOf(
-            BetLeg("2", irDescriptor = IrDescriptor(111, 11, 1)),
-            BetLeg("3", irDescriptor = IrDescriptor(111, 11, 1)),
-            BetLeg("4", irDescriptor = IrDescriptor(112, 11, 1))
-         )
-      )
+      val bet = Bet(Doubles, "1", listOf(
+         BetLeg("2", irDescriptor = IrDescriptor(111, 11, 1)),
+         BetLeg("3", irDescriptor = IrDescriptor(111, 11, 1)),
+         BetLeg("4", irDescriptor = IrDescriptor(112, 11, 1))
+      ))
 
       assertFailsWith<IrException> {
          BetCaptureCalculator.calculate(bet)
@@ -72,13 +62,11 @@ class InterrelationDetectionTest {
 
    @Test
    fun interrelatedSelectionsAreIgnored() {
-      val bet = Bet(
-         StrictVariablePerms(2, 3), "1", listOf(
-            BetLeg("2", irDescriptor = IrDescriptor(111, 11, 1, noInterrelation = true)),
-            BetLeg("3", irDescriptor = IrDescriptor(112, 11, 1, noInterrelation = true)),
-            BetLeg("4", irDescriptor = IrDescriptor(113, 11, 1))
-         )
-      )
+      val bet = Bet(StrictVariablePerms(2, 3), "1", listOf(
+         BetLeg("2", irDescriptor = IrDescriptor(111, 11, 1, noInterrelation = true)),
+         BetLeg("3", irDescriptor = IrDescriptor(112, 11, 1, noInterrelation = true)),
+         BetLeg("4", irDescriptor = IrDescriptor(113, 11, 1))
+      ))
 
       BetCaptureCalculator.calculate(bet)
    }
