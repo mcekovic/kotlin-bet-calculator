@@ -16,9 +16,9 @@ class InterrelationDetectionTest {
          BetLeg("4", irDescriptor = IrDescriptor(121, 12, 1))
       ))
 
-	   assertFailsWith<IrSelectionsException> {
-		   BetCaptureCalculator.calculate(bet)
-	   }
+      assertFailsWith<IrSelectionsException> {
+         BetCaptureCalculator.calculate(bet)
+      }
    }
 
    @Test
@@ -29,9 +29,9 @@ class InterrelationDetectionTest {
          BetLeg("4", irDescriptor = IrDescriptor(113, 11, 1, 2))
       ))
 
-	   assertFailsWith<MaxWinnersViolationException> {
-	      BetCaptureCalculator.calculate(bet)
-	   }
+      assertFailsWith<MaxWinnersViolationException> {
+         BetCaptureCalculator.calculate(bet)
+      }
    }
 
    @Test
@@ -44,7 +44,7 @@ class InterrelationDetectionTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(2, "2", "20")
+      assertThat(result).hasUnitCount(2).hasStake("2").hasMaxReturn("20")
    }
 
    @Test
@@ -55,25 +55,25 @@ class InterrelationDetectionTest {
          BetLeg("4", irDescriptor = IrDescriptor(112, 11, 1))
       ))
 
-	   assertFailsWith<IrException> {
-		   BetCaptureCalculator.calculate(bet)
-	   }
+      assertFailsWith<IrException> {
+         BetCaptureCalculator.calculate(bet)
+      }
    }
 
-	@Test
-	fun interrelatedSelectionsAreIgnored() {
-		val bet = Bet(StrictVariablePerms(2, 3), "1", listOf(
-			BetLeg("2", irDescriptor = IrDescriptor(111, 11, 1, noInterrelation = true)),
-			BetLeg("3", irDescriptor = IrDescriptor(112, 11, 1, noInterrelation = true)),
-			BetLeg("4", irDescriptor = IrDescriptor(113, 11, 1))
-		))
+   @Test
+   fun interrelatedSelectionsAreIgnored() {
+      val bet = Bet(StrictVariablePerms(2, 3), "1", listOf(
+         BetLeg("2", irDescriptor = IrDescriptor(111, 11, 1, noInterrelation = true)),
+         BetLeg("3", irDescriptor = IrDescriptor(112, 11, 1, noInterrelation = true)),
+         BetLeg("4", irDescriptor = IrDescriptor(113, 11, 1))
+      ))
 
       BetCaptureCalculator.calculate(bet)
-	}
+   }
 
-	@Test
+   @Test
    fun allInterrelationsAreReturned() {
-		val legs = listOf(
+      val legs = listOf(
          BetLeg("2", irDescriptor = IrDescriptor(111, 11, 1, 2)),
          BetLeg("3", irDescriptor = IrDescriptor(112, 11, 1, 2)),
          BetLeg("4", irDescriptor = IrDescriptor(113, 11, 1, 2)),
@@ -84,7 +84,7 @@ class InterrelationDetectionTest {
          BetLeg("4", irDescriptor = IrDescriptor(141, 14, 1))
       )
 
-		val results = IrDetector.getInterrelations(legs)
-		assertThat(results).hasSize(4)
-	}
+      val results = IrDetector.getInterrelations(legs)
+      assertThat(results).hasSize(4)
+   }
 }

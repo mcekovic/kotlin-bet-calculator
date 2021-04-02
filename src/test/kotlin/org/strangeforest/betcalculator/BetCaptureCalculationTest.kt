@@ -92,4 +92,21 @@ internal class BetCaptureCalculationTest {
 
       assertThat(result.maxReturn).isEqualTo("74")
    }
+
+   @Test
+   fun calculateEachWayBet() {
+      val leg = BetLeg("2")
+      leg.status = LegStatus("1", "0")
+      leg.status?.placeOddsFactor = "0.5"
+      leg.irDescriptor = IrDescriptor(123, 12, 1)
+      leg.irDescriptor?.maxWinners = null
+      leg.irDescriptor?.tag = "O:Score"
+      val bet = Bet("Single", "10", arrayOf(leg))
+      bet.rules = BetRules()
+      bet.rules.eachWayType = "EACH_WAY"
+
+      val result = calculateCapture(bet)
+
+      assertThat(result.maxReturn).isEqualTo("35.00")
+   }
 }

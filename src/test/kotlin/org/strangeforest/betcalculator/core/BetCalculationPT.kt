@@ -16,7 +16,7 @@ class BetCalculationPT {
 
          val result = BetCaptureCalculator.calculate(bet)
 
-         assertThat(result).isResult(4194303, "4194303", "310224200866619719679999")
+         assertThat(result).hasUnitCount(4194303)
 
          units += result.unitCount.toDouble()
       }
@@ -33,7 +33,7 @@ class BetCalculationPT {
 
             val result = BetCaptureCalculator.calculate(bet)
 
-            assertThat(result).isResult(1140, "1140", "1664970")
+            assertThat(result).hasUnitCount(1140)
 
             units += result.unitCount.toDouble()
          }

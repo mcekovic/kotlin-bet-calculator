@@ -60,7 +60,7 @@ class IrDescriptor(
    val marketId: Comparable<*>,
    val eventId: Comparable<*>
 ) {
-   var maxWinners: Int = 1
+   var maxWinners: Int? = 1
    var tag: String = ""
 }
 

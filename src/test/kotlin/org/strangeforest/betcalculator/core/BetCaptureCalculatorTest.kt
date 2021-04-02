@@ -18,7 +18,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(1, "10", "20")
+      assertThat(result).hasUnitCount(1).hasStake("10").hasMaxReturn("20")
    }
 
 
@@ -30,7 +30,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(1, "2", "12")
+      assertThat(result).hasUnitCount(1).hasStake("2").hasMaxReturn("12")
    }
 
 
@@ -42,7 +42,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(3, "3", "26")
+      assertThat(result).hasUnitCount(3).hasStake("3").hasMaxReturn("26")
    }
 
 
@@ -54,7 +54,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(10, "10", "225")
+      assertThat(result).hasUnitCount(10).hasStake("10").hasMaxReturn("225")
    }
 
 
@@ -66,7 +66,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(4, "4", "50")
+      assertThat(result).hasUnitCount(4).hasStake("4").hasMaxReturn("50")
    }
 
    @Test
@@ -75,7 +75,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(247, "247", "1814355")
+      assertThat(result).hasUnitCount(247).hasStake("247").hasMaxReturn("1814355")
    }
 
    @Test
@@ -84,7 +84,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(7, "7", "59")
+      assertThat(result).hasUnitCount(7).hasStake("7").hasMaxReturn("59")
    }
 
    @Test
@@ -93,7 +93,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(63, "63", "20159")
+      assertThat(result).hasUnitCount(63).hasStake("63").hasMaxReturn("20159")
    }
 
 
@@ -105,7 +105,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(8, "8", "1788")
+      assertThat(result).hasUnitCount(8).hasStake("8").hasMaxReturn("1788")
    }
 
    @Test
@@ -114,7 +114,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(32, "32", "2662")
+      assertThat(result).hasUnitCount(32).hasStake("32").hasMaxReturn("2662")
    }
 
    @Test
@@ -123,7 +123,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(40, "40", "4450")
+      assertThat(result).hasUnitCount(40).hasStake("40").hasMaxReturn("4450")
    }
 
    @Test
@@ -132,7 +132,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(56, "56", "2806")
+      assertThat(result).hasUnitCount(56).hasStake("56").hasMaxReturn("2806")
    }
 
    @Test
@@ -141,7 +141,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(80, "80", "3190")
+      assertThat(result).hasUnitCount(80).hasStake("80").hasMaxReturn("3190")
    }
 
 
@@ -153,7 +153,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(2, "2", "8")
+      assertThat(result).hasUnitCount(2).hasStake("2").hasMaxReturn("8")
    }
 
    @Test
@@ -162,7 +162,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(6, "6", "42")
+      assertThat(result).hasUnitCount(6).hasStake("6").hasMaxReturn("42")
    }
 
    @Test
@@ -171,7 +171,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(10, "10", "80")
+      assertThat(result).hasUnitCount(10).hasStake("10").hasMaxReturn("80")
    }
 
    @Test
@@ -180,7 +180,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(3, "3", "32")
+      assertThat(result).hasUnitCount(3).hasStake("3").hasMaxReturn("32")
    }
 
    @Test
@@ -189,7 +189,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(3, "3", "55")
+      assertThat(result).hasUnitCount(3).hasStake("3").hasMaxReturn("55")
    }
 
    @Test
@@ -198,7 +198,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(4, "4", "164")
+      assertThat(result).hasUnitCount(4).hasStake("4").hasMaxReturn("164")
    }
 
    @Test
@@ -207,7 +207,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(10, "10", "725")
+      assertThat(result).hasUnitCount(10).hasStake("10").hasMaxReturn("725")
    }
 
 
@@ -219,7 +219,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(15, "15", "1492")
+      assertThat(result).hasUnitCount(15).hasStake("15").hasMaxReturn("1492")
    }
 
    @Test
@@ -228,7 +228,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(26, "26", "6255")
+      assertThat(result).hasUnitCount(26).hasStake("26").hasMaxReturn("6255")
    }
 
    @Test
@@ -237,7 +237,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(20, "20", "735")
+      assertThat(result).hasUnitCount(20).hasStake("20").hasMaxReturn("735")
    }
 
    @Test
@@ -246,7 +246,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(10, "10", "641")
+      assertThat(result).hasUnitCount(10).hasStake("10").hasMaxReturn("641")
    }
 
    @Test
@@ -255,7 +255,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(13, "13", "42396")
+      assertThat(result).hasUnitCount(13).hasStake("13").hasMaxReturn("42396")
    }
 
    @Test
@@ -264,7 +264,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(12, "12", "465")
+      assertThat(result).hasUnitCount(12).hasStake("12").hasMaxReturn("465")
    }
 
    @Test
@@ -273,7 +273,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(18, "18", "3056")
+      assertThat(result).hasUnitCount(18).hasStake("18").hasMaxReturn("3056")
    }
 
    @Test
@@ -282,21 +282,23 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(33, "33", "2655")
+      assertThat(result).hasUnitCount(33).hasStake("33").hasMaxReturn("2655")
    }
 
    @Test
    fun calculateArkleBet() {
-      val bet = Bet(Arkle, "1", listOf(
-         BetLeg("2.0", LegStatus.open(placeOddsFactor = "0.5")),
-         BetLeg("3.0", LegStatus.open(placeOddsFactor = "0.5")),
-         BetLeg("4.0", LegStatus.open(placeOddsFactor = "0.5")),
-         BetLeg("5.0", LegStatus.open(placeOddsFactor = "0.5"))
-      ))
+      val bet = Bet(
+         Arkle, "1", listOf(
+            BetLeg("2.0", LegStatus.open(placeOddsFactor = "0.5")),
+            BetLeg("3.0", LegStatus.open(placeOddsFactor = "0.5")),
+            BetLeg("4.0", LegStatus.open(placeOddsFactor = "0.5")),
+            BetLeg("5.0", LegStatus.open(placeOddsFactor = "0.5"))
+         )
+      )
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(30, "30", "480.5")
+      assertThat(result).hasUnitCount(30).hasStake("30").hasMaxReturn("480.5")
    }
 
    @Test
@@ -305,7 +307,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(28, "28", "338")
+      assertThat(result).hasUnitCount(28).hasStake("28").hasMaxReturn("338")
    }
 
    @Test
@@ -314,7 +316,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(55, "55", "2669")
+      assertThat(result).hasUnitCount(55).hasStake("55").hasMaxReturn("2669")
    }
 
    @Test
@@ -323,7 +325,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(47, "47", "3638461")
+      assertThat(result).hasUnitCount(47).hasStake("47").hasMaxReturn("3638461")
    }
 
    @Test
@@ -332,7 +334,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(27, "27", "431")
+      assertThat(result).hasUnitCount(27).hasStake("27").hasMaxReturn("431")
    }
 
    @Test
@@ -341,7 +343,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(40, "40", "440")
+      assertThat(result).hasUnitCount(40).hasStake("40").hasMaxReturn("440")
    }
 
    @Test
@@ -350,7 +352,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(3, "3", "15")
+      assertThat(result).hasUnitCount(3).hasStake("3").hasMaxReturn("15")
    }
 
    @Test
@@ -359,7 +361,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(4, "4", "34")
+      assertThat(result).hasUnitCount(4).hasStake("4").hasMaxReturn("34")
    }
 
    @Test
@@ -368,7 +370,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(7, "7", "105")
+      assertThat(result).hasUnitCount(7).hasStake("7").hasMaxReturn("105")
    }
 
    @Test
@@ -377,7 +379,7 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(13, "13", "135")
+      assertThat(result).hasUnitCount(13).hasStake("13").hasMaxReturn("135")
    }
 
    @Test
@@ -386,21 +388,23 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(13, "13", "147")
+      assertThat(result).hasUnitCount(13).hasStake("13").hasMaxReturn("147")
    }
 
    @Test
    fun calculateDundeeShuffleBet() {
-      val bet = Bet(DundeeShuffle, "1", listOf(
-         BetLeg("2.0", LegStatus.open(placeOddsFactor = "0.5")),
-         BetLeg("3.0", LegStatus.open(placeOddsFactor = "0.5")),
-         BetLeg("4.0", LegStatus.open(placeOddsFactor = "0.5")),
-         BetLeg("5.0", LegStatus.open(placeOddsFactor = "0.5"))
-      ))
+      val bet = Bet(
+         DundeeShuffle, "1", listOf(
+            BetLeg("2.0", LegStatus.open(placeOddsFactor = "0.5")),
+            BetLeg("3.0", LegStatus.open(placeOddsFactor = "0.5")),
+            BetLeg("4.0", LegStatus.open(placeOddsFactor = "0.5")),
+            BetLeg("5.0", LegStatus.open(placeOddsFactor = "0.5"))
+         )
+      )
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(10, "10", "297.75")
+      assertThat(result).hasUnitCount(10).hasStake("10").hasMaxReturn("297.75")
    }
 
 
@@ -412,42 +416,48 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(2, "20", "35")
+      assertThat(result).hasUnitCount(2).hasStake("20").hasMaxReturn("35")
    }
 
    @Test
    fun calculateEachWayTrebleBet() {
-      val bet = Bet(Treble, "10", listOf(
-         BetLeg("2", LegStatus.open(placeOddsFactor = "0.5")),
-         BetLeg("3", LegStatus.open(placeOddsFactor = "0.5")),
-         BetLeg("4")
-      ), rules = BetRules(EACH_WAY))
+      val bet = Bet(
+         Treble, "10", listOf(
+            BetLeg("2", LegStatus.open(placeOddsFactor = "0.5")),
+            BetLeg("3", LegStatus.open(placeOddsFactor = "0.5")),
+            BetLeg("4")
+         ), rules = BetRules(EACH_WAY)
+      )
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(2, "20", "360")
+      assertThat(result).hasUnitCount(2).hasStake("20").hasMaxReturn("360")
    }
 
    @Test
    fun calculateEachWayPatentBetWithEquallyDividedFormula() {
-      val bet = Bet(Patent, "10", listOf(
-         BetLeg("2", LegStatus.open(placeOddsFactor = "0.25")),
-         BetLeg("3", LegStatus.open(placeOddsFactor = "0.25")),
-         BetLeg("4")
-      ), rules = BetRules(EACH_WAY, EQUALLY_DIVIDED))
+      val bet = Bet(
+         Patent, "10", listOf(
+            BetLeg("2", LegStatus.open(placeOddsFactor = "0.25")),
+            BetLeg("3", LegStatus.open(placeOddsFactor = "0.25")),
+            BetLeg("4")
+         ), rules = BetRules(EACH_WAY, EQUALLY_DIVIDED)
+      )
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(14, "140", "833.125")
+      assertThat(result).hasUnitCount(14).hasStake("140").hasMaxReturn("833.125")
    }
 
    @Test
    fun winPrecedenceEachWayFormulaIsOnlyForAnyToComeBets() {
       assertFailsWith<IllegalArgumentException> {
-         Bet(Double, "10", listOf(
-            BetLeg("2", LegStatus.open(placeOddsFactor = "0.25")),
-            BetLeg("3", LegStatus.open(placeOddsFactor = "0.25"))
-         ), rules = BetRules(EACH_WAY, WIN_PRECEDENCE))
+         Bet(
+            Double, "10", listOf(
+               BetLeg("2", LegStatus.open(placeOddsFactor = "0.25")),
+               BetLeg("3", LegStatus.open(placeOddsFactor = "0.25"))
+            ), rules = BetRules(EACH_WAY, WIN_PRECEDENCE)
+         )
       }
    }
 
@@ -460,20 +470,22 @@ class BetCaptureCalculatorTest {
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(1, "10", "15")
+      assertThat(result).hasUnitCount(1).hasStake("10").hasMaxReturn("15")
    }
 
    @Test
    fun calculatePlaceTrebleBet() {
-      val bet = Bet(Treble, "10", listOf(
-         BetLeg("2", LegStatus.open(placeOddsFactor = "0.5")),
-         BetLeg("3", LegStatus.open(placeOddsFactor = "0.5")),
-         BetLeg("4")
-      ), rules = BetRules(PLACE))
+      val bet = Bet(
+         Treble, "10", listOf(
+            BetLeg("2", LegStatus.open(placeOddsFactor = "0.5")),
+            BetLeg("3", LegStatus.open(placeOddsFactor = "0.5")),
+            BetLeg("4")
+         ), rules = BetRules(PLACE)
+      )
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(1, "10", "120")
+      assertThat(result).hasUnitCount(1).hasStake("10").hasMaxReturn("120")
    }
 
 
@@ -481,65 +493,75 @@ class BetCaptureCalculatorTest {
 
    @Test
    fun calculateEachWaySingleStakesAboutBet() {
-      val bet = Bet(SingleStakesAbout, "1", listOf(
-         BetLeg("2.0", LegStatus.open(placeOddsFactor = "0.25")),
-         BetLeg("3.0", LegStatus.open(placeOddsFactor = "0.25")),
-         BetLeg("4.0", LegStatus.open(placeOddsFactor = "0.25"))
-      ), rules = BetRules(EACH_WAY))
+      val bet = Bet(
+         SingleStakesAbout, "1", listOf(
+            BetLeg("2.0", LegStatus.open(placeOddsFactor = "0.25")),
+            BetLeg("3.0", LegStatus.open(placeOddsFactor = "0.25")),
+            BetLeg("4.0", LegStatus.open(placeOddsFactor = "0.25"))
+         ), rules = BetRules(EACH_WAY)
+      )
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(12, "12", "42")
+      assertThat(result).hasUnitCount(12).hasStake("12").hasMaxReturn("42")
    }
 
    @Test
    fun calculateEachWaySingleStakesAboutBetWithWinPrecedenceFormula() {
-      val bet = Bet(SingleStakesAbout, "1", listOf(
-         BetLeg("2.0", LegStatus.open(placeOddsFactor = "0.25")),
-         BetLeg("3.0", LegStatus.open(placeOddsFactor = "0.25")),
-         BetLeg("4.0", LegStatus.open(placeOddsFactor = "0.25"))
-      ), rules = BetRules(EACH_WAY, eachWayAnyToComeFormula = WIN_PRECEDENCE))
+      val bet = Bet(
+         SingleStakesAbout, "1", listOf(
+            BetLeg("2.0", LegStatus.open(placeOddsFactor = "0.25")),
+            BetLeg("3.0", LegStatus.open(placeOddsFactor = "0.25")),
+            BetLeg("4.0", LegStatus.open(placeOddsFactor = "0.25"))
+         ), rules = BetRules(EACH_WAY, eachWayAnyToComeFormula = WIN_PRECEDENCE)
+      )
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(12, "12", "42")
+      assertThat(result).hasUnitCount(12).hasStake("12").hasMaxReturn("42")
    }
 
    @Test
    fun calculateEachWaySingleStakesAboutBetWithWinPlaceFormula() {
-      val bet = Bet(SingleStakesAbout, "1", listOf(
-         BetLeg("2.0", LegStatus.open(placeOddsFactor = "0.25")),
-         BetLeg("3.0", LegStatus.open(placeOddsFactor = "0.25")),
-         BetLeg("4.0", LegStatus.open(placeOddsFactor = "0.25"))
-      ), rules = BetRules(EACH_WAY, eachWayAnyToComeFormula = WIN_PLACE))
+      val bet = Bet(
+         SingleStakesAbout, "1", listOf(
+            BetLeg("2.0", LegStatus.open(placeOddsFactor = "0.25")),
+            BetLeg("3.0", LegStatus.open(placeOddsFactor = "0.25")),
+            BetLeg("4.0", LegStatus.open(placeOddsFactor = "0.25"))
+         ), rules = BetRules(EACH_WAY, eachWayAnyToComeFormula = WIN_PLACE)
+      )
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(12, "12", "42")
+      assertThat(result).hasUnitCount(12).hasStake("12").hasMaxReturn("42")
    }
 
    @Test
    fun calculateEachWayDoubleStakesAboutBet() {
-      val bet = Bet(DoubleStakesAbout, "1", listOf(
-         BetLeg("2.0", LegStatus.open(placeOddsFactor = "0.25")),
-         BetLeg("3.0", LegStatus.open(placeOddsFactor = "0.25"))
-      ), rules = BetRules(EACH_WAY))
+      val bet = Bet(
+         DoubleStakesAbout, "1", listOf(
+            BetLeg("2.0", LegStatus.open(placeOddsFactor = "0.25")),
+            BetLeg("3.0", LegStatus.open(placeOddsFactor = "0.25"))
+         ), rules = BetRules(EACH_WAY)
+      )
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(4, "4", "14")
+      assertThat(result).hasUnitCount(4).hasStake("4").hasMaxReturn("14")
    }
 
    @Test
    fun calculateEachWayDoubleStakesAboutWithWinPrecedenceFormula() {
-      val bet = Bet(DoubleStakesAbout, "1", listOf(
-         BetLeg("2.0", LegStatus.open(placeOddsFactor = "0.25")),
-         BetLeg("3.0", LegStatus.open(placeOddsFactor = "0.25"))
-      ), rules = BetRules(EACH_WAY, eachWayAnyToComeFormula = WIN_PRECEDENCE))
+      val bet = Bet(
+         DoubleStakesAbout, "1", listOf(
+            BetLeg("2.0", LegStatus.open(placeOddsFactor = "0.25")),
+            BetLeg("3.0", LegStatus.open(placeOddsFactor = "0.25"))
+         ), rules = BetRules(EACH_WAY, eachWayAnyToComeFormula = WIN_PRECEDENCE)
+      )
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(4, "4", "14.75")
+      assertThat(result).hasUnitCount(4).hasStake("4").hasMaxReturn("14.75")
    }
 
 
@@ -547,16 +569,18 @@ class BetCaptureCalculatorTest {
 
    @Test
    fun calculatePermsWithBankersBet() {
-      val bet = Bet(Perms(2), "1", listOf(
-         BetLeg("2", banker = true),
-         BetLeg("3"),
-         BetLeg("4"),
-         BetLeg("5")
-      ))
+      val bet = Bet(
+         Perms(2), "1", listOf(
+            BetLeg("2", banker = true),
+            BetLeg("3"),
+            BetLeg("4"),
+            BetLeg("5")
+         )
+      )
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(3, "3", "94")
+      assertThat(result).hasUnitCount(3).hasStake("3").hasMaxReturn("94")
    }
 
 
@@ -564,93 +588,125 @@ class BetCaptureCalculatorTest {
 
    @Test
    fun calculatePermsBetWithAccumulatorGroups() {
-      val bet = Bet(Perms(2), "1", groups = listOf(
-         BetLegGroup(Accumulator, listOf(
-            BetLeg("2"),
-            BetLeg("3")
-         )),
-         BetLegGroup(Accumulator, listOf(
-            BetLeg("4")
-         )),
-         BetLegGroup(Accumulator, listOf(
-            BetLeg("5")
-         ))
-      ))
+      val bet = Bet(
+         Perms(2), "1", groups = listOf(
+            BetLegGroup(
+               Accumulator, listOf(
+                  BetLeg("2"),
+                  BetLeg("3")
+               )
+            ),
+            BetLegGroup(
+               Accumulator, listOf(
+                  BetLeg("4")
+               )
+            ),
+            BetLegGroup(
+               Accumulator, listOf(
+                  BetLeg("5")
+               )
+            )
+         )
+      )
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(3, "3", "74")
+      assertThat(result).hasUnitCount(3).hasStake("3").hasMaxReturn("74")
    }
 
    @Test
    fun calculateAccumulatorBetWithPermsGroups() {
-      val bet = Bet(Accumulator, "1", groups = listOf(
-         BetLegGroup(Perms(2), listOf(
-            BetLeg("2"),
-            BetLeg("3"),
-            BetLeg("4")
-         )),
-         BetLegGroup(Perms(1), listOf(
-            BetLeg("5"),
-            BetLeg("6")
-         ))
-      ))
+      val bet = Bet(
+         Accumulator, "1", groups = listOf(
+            BetLegGroup(
+               Perms(2), listOf(
+                  BetLeg("2"),
+                  BetLeg("3"),
+                  BetLeg("4")
+               )
+            ),
+            BetLegGroup(
+               Perms(1), listOf(
+                  BetLeg("5"),
+                  BetLeg("6")
+               )
+            )
+         )
+      )
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(6, "6", "286")
+      assertThat(result).hasUnitCount(6).hasStake("6").hasMaxReturn("286")
    }
 
    @Test
    fun calculatePermsBetWithPermsGroups() {
-      val bet = Bet(Perms(2), "1", groups = listOf(
-         BetLegGroup(Perms(2), listOf(
-            BetLeg("2"),
-            BetLeg("3"),
-            BetLeg("4")
-         )),
-         BetLegGroup(Perms(1), listOf(
-            BetLeg("5"),
-            BetLeg("6")
-         )),
-         BetLegGroup(Perms(1), listOf(
-            BetLeg("7"),
-            BetLeg("8")
-         ))
-      ))
+      val bet = Bet(
+         Perms(2), "1", groups = listOf(
+            BetLegGroup(
+               Perms(2), listOf(
+                  BetLeg("2"),
+                  BetLeg("3"),
+                  BetLeg("4")
+               )
+            ),
+            BetLegGroup(
+               Perms(1), listOf(
+                  BetLeg("5"),
+                  BetLeg("6")
+               )
+            ),
+            BetLegGroup(
+               Perms(1), listOf(
+                  BetLeg("7"),
+                  BetLeg("8")
+               )
+            )
+         )
+      )
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(16, "16", "841")
+      assertThat(result).hasUnitCount(16).hasStake("16").hasMaxReturn("841")
    }
 
    @Test
    fun calculatePermsBetWithPermsBankerGroupsWithBankerLegs() {
-      val bet = Bet(Perms(2), "1", groups = listOf(
-         BetLegGroup(Perms(1), listOf(
-            BetLeg("2"),
-            BetLeg("3"),
-         ), banker = true),
-         BetLegGroup(Perms(2), listOf(
-            BetLeg("4", banker = true),
-            BetLeg("5"),
-            BetLeg("6"),
-            BetLeg("7")
-         )),
-         BetLegGroup(Perms(1), listOf(
-            BetLeg("8", banker = true),
-            BetLeg("9"),
-            BetLeg("10")
-         )),
-         BetLegGroup(Perms(1), listOf(
-            BetLeg("11", banker = true),
-            BetLeg("12"),
-            BetLeg("13")
-         ))
-      ))
+      val bet = Bet(
+         Perms(2), "1", groups = listOf(
+            BetLegGroup(
+               Perms(1), listOf(
+                  BetLeg("2"),
+                  BetLeg("3"),
+               ), banker = true
+            ),
+            BetLegGroup(
+               Perms(2), listOf(
+                  BetLeg("4", banker = true),
+                  BetLeg("5"),
+                  BetLeg("6"),
+                  BetLeg("7")
+               )
+            ),
+            BetLegGroup(
+               Perms(1), listOf(
+                  BetLeg("8", banker = true),
+                  BetLeg("9"),
+                  BetLeg("10")
+               )
+            ),
+            BetLegGroup(
+               Perms(1), listOf(
+                  BetLeg("11", banker = true),
+                  BetLeg("12"),
+                  BetLeg("13")
+               )
+            )
+         )
+      )
 
       val result = BetCaptureCalculator.calculate(bet)
 
-      assertThat(result).isResult(32, "32", "1122780")
+      assertThat(result).hasUnitCount(32).hasStake("32").hasMaxReturn("1122780")
    }
 }

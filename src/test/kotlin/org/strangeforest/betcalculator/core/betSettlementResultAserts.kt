@@ -8,12 +8,17 @@ internal fun Assert<BetSettlementResult>.currentReturn() = prop(BetSettlementRes
 internal fun Assert<BetSettlementResult>.maxReturn() = prop(BetSettlementResult::maxReturn)
 internal fun Assert<BetSettlementResult>.state() = prop(BetSettlementResult::state)
 
-internal fun Assert<BetSettlementResult>.isResult(currentReturn: String, maxReturn: String) {
+internal fun Assert<BetSettlementResult>.hasCurrentReturn(currentReturn: String): Assert<BetSettlementResult> {
    currentReturn().isEqualByComparingTo(currentReturn)
-   maxReturn().isEqualByComparingTo(maxReturn)
+   return this
 }
 
-internal fun Assert<BetSettlementResult>.isResult(currentReturn: String, maxReturn: String, state: BetState) {
-   isResult(currentReturn, maxReturn)
+internal fun Assert<BetSettlementResult>.hasMaxReturn(maxReturn: String): Assert<BetSettlementResult> {
+   maxReturn().isEqualByComparingTo(maxReturn)
+   return this
+}
+
+internal fun Assert<BetSettlementResult>.hasState(state: BetState): Assert<BetSettlementResult> {
    state().isEqualTo(state)
+   return this
 }
