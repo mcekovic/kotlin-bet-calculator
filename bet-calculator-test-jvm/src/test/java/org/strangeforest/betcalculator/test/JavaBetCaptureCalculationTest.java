@@ -3,8 +3,8 @@ package org.strangeforest.betcalculator.test;
 import org.junit.jupiter.api.*;
 import org.strangeforest.betcalculator.*;
 
-import static org.assertj.core.api.Assertions.*;
 import static org.strangeforest.betcalculator.BetCalculatorKt.*;
+import static org.strangeforest.betcalculator.test.BetCalculatorAssertions.*;
 
 class JavaBetCaptureCalculationTest {
 
@@ -16,7 +16,7 @@ class JavaBetCaptureCalculationTest {
 
 		var result = calculateCapture(bet);
 
-		assertThat(result.getMaxReturn()).isEqualTo("20.0");
+		assertThat(result).hasUnitCount("1").hasMaxReturn("20.0");
 	}
 
 	@Test
@@ -28,7 +28,7 @@ class JavaBetCaptureCalculationTest {
 
 		var result = calculateCapture(bet);
 
-		assertThat(result.getMaxReturn()).isEqualTo("12.00");
+		assertThat(result).hasUnitCount("1").hasMaxReturn("12.00");
 	}
 
 	@Test
@@ -41,7 +41,7 @@ class JavaBetCaptureCalculationTest {
 
 		var result = calculateCapture(bet);
 
-		assertThat(result.getMaxReturn()).isEqualTo("26.00");
+		assertThat(result).hasUnitCount("3").hasMaxReturn("26.00");
 	}
 
 	@Test
@@ -71,6 +71,6 @@ class JavaBetCaptureCalculationTest {
 
 		var result = calculateCapture(bet);
 
-		assertThat(result.getMaxReturn()).isEqualTo("1662209157.7375774976");
+		assertThat(result).hasUnitCount("184756").hasMaxReturn("1662209157.7375774976");
 	}
 }
