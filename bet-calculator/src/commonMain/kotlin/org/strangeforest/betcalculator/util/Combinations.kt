@@ -31,7 +31,7 @@ internal class Combinations<T>(private val items: List<T>, private val length: I
    private fun moveIndex() {
       val i = nextDiffIndex()
       if (i >= 0) {
-         indexes[i] = indexes[i] + 1
+         indexes[i]++
          for (j in i + 1 until length)
             indexes[j] = indexes[j - 1] + 1
       }

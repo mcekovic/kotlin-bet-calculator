@@ -35,8 +35,7 @@ internal class EachWayAccumulatorN(itemCount: Int, val unitCountFactor: Decimal 
    }
 
    override fun createUnit(unitStake: Decimal, legs: List<BetLeg>, rules: BetRules): BetUnit {
-      val unitRules = rules.eachWay()
-      return BetUnit(unitStake, legs, this, unitRules, unitCountFactor)
+      return BetUnit(unitStake, legs, this, rules.eachWay(), unitCountFactor)
    }
 }
 
