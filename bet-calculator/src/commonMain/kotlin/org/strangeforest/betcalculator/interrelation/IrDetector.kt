@@ -53,7 +53,7 @@ internal class IrDetector {
          if (desc1.noInterrelation || desc2.noInterrelation)
             return NotInterrelated
          if (desc1.selectionId == desc2.selectionId)
-            return IrSelectionsResult(SAME_SELECTION, desc1.selectionId, desc2.selectionId, "Same selection")
+            return IrSelectionsResult(SAME_SELECTION, desc1.selectionId, desc2.selectionId, "Same selection (${desc1.selectionId})")
          if (desc1.marketId == desc2.marketId) {
             if (desc1.maxWinners != desc2.maxWinners)
                throw IllegalStateException("Different maxWinners for different Legs on the same Market")
