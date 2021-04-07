@@ -28,7 +28,7 @@ internal data class Bet(
                .map { groupCombination -> cartesianProduct(
                   groupCombination.items.map(BetLegGroup::legCombinations)
                )}.flatten()
-               .map { legs -> toUnit(betType.toCombination(legs.flatten()))}
+               .map { legs -> toUnit(betType.toCombination(legs.flatten())) }
          }
       }
 
