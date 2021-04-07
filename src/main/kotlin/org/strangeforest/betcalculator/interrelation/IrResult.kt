@@ -25,7 +25,7 @@ internal class IrSelectionsResult(irType: IrType, val selectionId1: Comparable<*
 }
 
 internal class MaxWinnersViolationIrResult(val marketId: Comparable<*>, val selectionIds: Iterable<Comparable<*>>, val maxWinners: Int) :
-   IrResult(MAX_WINNERS, "MaxWinners violation: More then $maxWinners Selections ($selectionIds) from Market $marketId are in the bet unit") {
+   IrResult(MAX_WINNERS, "MaxWinners violation: More then $maxWinners selections ($selectionIds) from market $marketId are in the bet unit") {
 
    override fun toIrException(): IrException {
       return MaxWinnersViolationException(irType, marketId, selectionIds, maxWinners, message)
