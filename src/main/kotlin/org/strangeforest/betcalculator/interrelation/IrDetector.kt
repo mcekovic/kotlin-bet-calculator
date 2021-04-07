@@ -6,11 +6,11 @@ import org.strangeforest.betcalculator.interrelation.IrType.*
 
 internal class IrDetector {
 
-   private val irCache: MutableMap<IRKey, IrResult> = HashMap()
+   private val irCache: MutableMap<IrKey, IrResult> = HashMap()
 
    fun checkInterrelationOrSkip(unit: BetUnit): Boolean {
       val result = areInterrelated(unit.legs)
-      return result.isInterrelated() && (unit.betType.canSkipUnits || throw result.toIRException())
+      return result.isInterrelated() && (unit.betType.canSkipUnits || throw result.toIrException())
    }
 
    private fun areInterrelated(legs: List<BetLeg>): IrResult {
@@ -27,11 +27,11 @@ internal class IrDetector {
    }
 
    private fun cachedAreInterrelated(desc1: IrDescriptor, desc2: IrDescriptor) =
-      irCache.getOrPut(IRKey(desc1.selectionId, desc2.selectionId)) { areInterrelated(desc1, desc2) }
+      irCache.getOrPut(IrKey(desc1.selectionId, desc2.selectionId)) { areInterrelated(desc1, desc2) }
 
    companion object {
 
-      private data class IRKey(val selectionId1: Comparable<*>, val selectionId2: Comparable<*>)
+      private data class IrKey(val selectionId1: Comparable<*>, val selectionId2: Comparable<*>)
 
       fun getInterrelations(legs: List<BetLeg>): List<IrResult> {
          val results = ArrayList<IrResult>()
