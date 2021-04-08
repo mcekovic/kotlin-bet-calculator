@@ -51,8 +51,13 @@ class IrTagTest {
    }
 
    @Test
+   fun unknownTagTest() {
+      val irTag = IrTag.of("O:Score;X:More;D:Corners")
+      assertThat(irTag).hasToString("O:Score;D:Corners")
+   }
+
+   @Test
    fun invalidTagTest() {
-      assertFailsWith<IllegalArgumentException> { IrTag.of("X:Score") }
       assertFailsWith<IllegalArgumentException> { IrTag.of("Score") }
       assertFailsWith<IllegalArgumentException> { IrTag.of("C:1111,2222,3333") }
    }
