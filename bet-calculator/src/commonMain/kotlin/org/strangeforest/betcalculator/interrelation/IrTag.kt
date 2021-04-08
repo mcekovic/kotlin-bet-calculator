@@ -54,12 +54,11 @@ internal data class IrTag(
             val tagSetParts = tagSet.split(TYPE_SEPARATOR)
             if (tagSetParts.size < 2)
                throw IllegalArgumentException("Invalid tag: $tag")
-            when (val tagSetType = tagSetParts[0]) {
+            when (tagSetParts[0]) {
                OUTCOME_TAGS -> outcomeTagSet = parseTagSet(tagSetParts[1])
                DEP_OUTCOME_TAGS -> depOutcomeTagSet = parseTagSet(tagSetParts[1])
                GROUP_TAGS -> groupTagSet = parseTagSet(tagSetParts[1])
                CC_TAGS -> ccTagSet = parseCCTagSet(tagSetParts[1])
-               else -> throw IllegalArgumentException("Unknown tag type: $tagSetType")
             }
          }
          return IrTag(outcomeTagSet, depOutcomeTagSet, groupTagSet, ccTagSet)
