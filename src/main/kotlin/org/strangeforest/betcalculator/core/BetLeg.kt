@@ -8,7 +8,7 @@ import org.strangeforest.betcalculator.util.*
 internal data class BetLeg(
    val price: Decimal,
    val status: LegStatus = LegStatus.OPEN,
-   val irDescriptor: IrDescriptor = IrDescriptor.NO_IR,
+   val irDescriptor: IrDescriptor = IrDescriptor.noIr(),
    override val banker: Boolean = false
 ) : BankerAware {
 
@@ -16,7 +16,7 @@ internal data class BetLeg(
       require(price >= ONE) { "price must be greater than or equal to 1" }
    }
 
-   constructor(price: String, status: LegStatus = LegStatus.OPEN, irDescriptor: IrDescriptor = IrDescriptor.NO_IR, banker: Boolean = false) :
+   constructor(price: String, status: LegStatus = LegStatus.OPEN, irDescriptor: IrDescriptor = IrDescriptor.noIr(), banker: Boolean = false) :
       this(price.dec, status, irDescriptor, banker)
 
    fun factoredPrice(eachWayType: EachWayType = WIN): Decimal = status.factoredPrice(price, eachWayType)
@@ -24,9 +24,9 @@ internal data class BetLeg(
    val state: BetState
       get() = status.state
 
-   val selectionId: Comparable<*>
+   val selectionId: Any
       get() = irDescriptor.selectionId
 
-   val marketId: Comparable<*>
+   val marketId: Any
       get() = irDescriptor.marketId
 }

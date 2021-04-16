@@ -31,7 +31,7 @@ internal class IrDetector {
 
    companion object {
 
-      private data class IrKey(val selectionId1: Comparable<*>, val selectionId2: Comparable<*>)
+      private data class IrKey(val selectionId1: Any, val selectionId2: Any)
 
       fun getInterrelations(legs: List<BetLeg>): List<IrResult> {
          val results = ArrayList<IrResult>()
@@ -50,8 +50,6 @@ internal class IrDetector {
       }
 
       fun areInterrelated(desc1: IrDescriptor, desc2: IrDescriptor): IrResult {
-         if (desc1.noInterrelation || desc2.noInterrelation)
-            return NotInterrelated
          if (desc1.selectionId == desc2.selectionId)
             return IrSelectionsResult(SAME_SELECTION, desc1.selectionId, desc2.selectionId, "Same selection (${desc1.selectionId})")
          if (desc1.marketId == desc2.marketId) {
@@ -73,7 +71,7 @@ internal class IrDetector {
       }
 
       private fun isMaxWinnersViolated(legs: List<BetLeg>): IrResult {
-         var marketCounts: MutableMap<Comparable<*>, Int>? = null
+         var marketCounts: MutableMap<Any, Int>? = null
          for (leg in legs) {
             val desc = leg.irDescriptor
             val marketId = desc.marketId
@@ -92,7 +90,7 @@ internal class IrDetector {
          return NotInterrelated
       }
 
-      private fun findSelectionIdsForMarket(legs: List<BetLeg>, marketId: Comparable<*>): List<Comparable<*>> =
+      private fun findSelectionIdsForMarket(legs: List<BetLeg>, marketId: Any): List<Any> =
          legs.asSequence()
             .filter { leg -> leg.marketId == marketId }
             .map(BetLeg::selectionId)

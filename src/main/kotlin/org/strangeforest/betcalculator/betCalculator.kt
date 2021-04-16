@@ -56,9 +56,9 @@ class LegStatus(
 }
 
 class IrDescriptor(
-   val selectionId: Comparable<*>,
-   val marketId: Comparable<*>,
-   val eventId: Comparable<*>
+   val selectionId: Any,
+   val marketId: Any,
+   val eventId: Any
 ) {
    var maxWinners: Int? = 1
    var tag: String = ""
@@ -123,7 +123,7 @@ private fun toLegStatus(status: LegStatus?) = if (status == null) KLegStatus.OPE
    status.resulted
 )
 
-private fun toIrDescriptor(descriptor: IrDescriptor?) = if (descriptor == null) KIrDescriptor.NO_IR else KIrDescriptor(
+private fun toIrDescriptor(descriptor: IrDescriptor?) = if (descriptor == null) KIrDescriptor.noIr() else KIrDescriptor(
    descriptor.selectionId,
    descriptor.marketId,
    descriptor.eventId,

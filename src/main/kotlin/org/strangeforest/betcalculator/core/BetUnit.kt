@@ -62,7 +62,7 @@ internal open class BetUnit(
       }
    }
 
-   private fun distributeEachWay(amounts: EachWayAmounts) = when (rules.eachWayFormula) {
+   private fun distributeEachWay(amounts: EachWayAmounts): EachWayAmounts = when (rules.eachWayFormula) {
       WIN_PLACE -> amounts
       EQUALLY_DIVIDED -> amounts.equallyDivided
       WIN_PRECEDENCE -> throw IllegalStateException()

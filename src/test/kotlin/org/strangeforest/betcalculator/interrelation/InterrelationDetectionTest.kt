@@ -63,8 +63,8 @@ class InterrelationDetectionTest {
    @Test
    fun interrelatedSelectionsAreIgnored() {
       val bet = Bet(StrictVariablePerms(2, 3), "1", listOf(
-         BetLeg("2", irDescriptor = IrDescriptor(111, 11, 1, noInterrelation = true)),
-         BetLeg("3", irDescriptor = IrDescriptor(112, 11, 1, noInterrelation = true)),
+         BetLeg("2", irDescriptor = IrDescriptor.noIr()),
+         BetLeg("3", irDescriptor = IrDescriptor.noIr()),
          BetLeg("4", irDescriptor = IrDescriptor(113, 11, 1))
       ))
 

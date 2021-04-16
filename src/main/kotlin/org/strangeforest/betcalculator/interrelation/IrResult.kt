@@ -16,7 +16,7 @@ internal object NotInterrelated : IrResult(NOT_INTERRELATED, "Not interrelated")
    }
 }
 
-internal class IrSelectionsResult(irType: IrType, val selectionId1: Comparable<*>, val selectionId2: Comparable<*>, reason: String) :
+internal class IrSelectionsResult(irType: IrType, val selectionId1: Any, val selectionId2: Any, reason: String) :
    IrResult(irType, "Selections $selectionId1 and $selectionId2 are interrelated: $reason") {
 
    override fun toIrException(): IrException {
@@ -24,7 +24,7 @@ internal class IrSelectionsResult(irType: IrType, val selectionId1: Comparable<*
    }
 }
 
-internal class MaxWinnersViolationIrResult(val marketId: Comparable<*>, val selectionIds: Iterable<Comparable<*>>, val maxWinners: Int) :
+internal class MaxWinnersViolationIrResult(val marketId: Any, val selectionIds: Iterable<Any>, val maxWinners: Int) :
    IrResult(MAX_WINNERS, "MaxWinners violation: More then $maxWinners selections ($selectionIds) from market $marketId are in the bet unit") {
 
    override fun toIrException(): IrException {
