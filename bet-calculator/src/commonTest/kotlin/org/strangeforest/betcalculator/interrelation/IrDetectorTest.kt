@@ -6,7 +6,7 @@ import assertk.*
 class IrDetectorTest {
 
    @Test
-   fun differentSelectionsMarketaAndEventsAreNotInterrelated() {
+   fun differentSelectionsMarketsAndEventsAreNotInterrelated() {
       val desc1 = IrDescriptor(111, 11, 1)
       val desc2 = IrDescriptor(211, 21, 2)
       assertThat(desc1).isNotInterrelatedWith(desc2)
@@ -59,7 +59,7 @@ class IrDetectorTest {
 
    @Test
    fun noInterrelationOverride() {
-      val desc1 = IrDescriptor(111, 11, 1, noInterrelation = true)
+      val desc1 = IrDescriptor.noIr()
       val desc2 = IrDescriptor(112, 11, 1)
       assertThat(desc1).isNotInterrelatedWith(desc2)
    }
