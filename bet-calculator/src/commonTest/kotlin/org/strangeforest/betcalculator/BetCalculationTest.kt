@@ -14,7 +14,7 @@ internal class BetCalculationTest {
          )
       )
       val result = calculateCapture(bet)
-      assertThat(result.maxReturn).isEqualTo("20.0")
+      assertThat(result.maxReturn).isEqualTo("20")
    }
 
    @Test
@@ -26,7 +26,7 @@ internal class BetCalculationTest {
          )
       )
       val result = calculateCapture(bet)
-      assertThat(result.maxReturn).isEqualTo("30.00")
+      assertThat(result.maxReturn).isEqualTo("30")
    }
 
    @Test
@@ -39,7 +39,7 @@ internal class BetCalculationTest {
          )
       )
       val result = calculateCapture(bet)
-      assertThat(result.maxReturn).isEqualTo("52.00")
+      assertThat(result.maxReturn).isEqualTo("52")
    }
 
    @Test
@@ -70,7 +70,7 @@ internal class BetCalculationTest {
       )
       val result = calculateCapture(bet)
       assertThat(result.unitCount).isEqualTo("184756")
-      assertThat(result.maxReturn).isEqualTo("1662209157.7375774976")
+      assertThat(result.maxReturn).isEqualTo("1662209157.737494")
    }
 
    @Test
@@ -108,7 +108,7 @@ internal class BetCalculationTest {
 
       val result = calculateCapture(bet)
 
-      assertThat(result.maxReturn).isEqualTo("35.00")
+      assertThat(result.maxReturn).isEqualTo("35")
    }
 
    @Test

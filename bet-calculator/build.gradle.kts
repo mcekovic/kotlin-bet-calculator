@@ -20,7 +20,7 @@ kotlin {
             useJUnit()
         }
     }
-    js(LEGACY) {
+    js(IR) {
         browser {
             testTask {
                 useKarma {
