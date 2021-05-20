@@ -50,7 +50,7 @@ kotlin {
             dependencies {
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test-annotations-common"))
-                implementation("com.willowtreeapps.assertk:assertk:0.23.1") {
+                implementation("com.willowtreeapps.assertk:assertk:0.24") {
                     exclude("org.jetbrains.kotlin", "*")
                 }
             }
