@@ -3,7 +3,7 @@ package org.strangeforest.betcalculator.bettypes
 import org.strangeforest.betcalculator.util.*
 
 internal fun requireItemCountAtLeast(itemCount: Int, value: Int) {
-   require(itemCount >= value) { "itemCount must be greater than or equal to $value" }
+   require(itemCount >= value) { "itemCount must be at least $value" }
 }
 
 internal fun <T> requireItemsSize(items: List<T>, value: Int) {
@@ -11,7 +11,7 @@ internal fun <T> requireItemsSize(items: List<T>, value: Int) {
 }
 
 internal fun <T> requireItemsSizeAtLeast(items: List<T>, value: Int) {
-   require(items.size >= value) { "legs/groups size must be greater than or equal to $value" }
+   require(items.size >= value) { "legs/groups size must be at least $value" }
 }
 
 internal fun validateUnitCountFactor(unitCountFactor: Decimal) {
