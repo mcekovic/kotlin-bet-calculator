@@ -13,7 +13,7 @@ internal data class BetLeg(
 ) : BankerAware {
 
    init {
-      require(price >= ONE) { "price must be at least 1" }
+      require(price >= ONE) { "price must be greater than or equal to 1" }
    }
 
    constructor(price: String, status: LegStatus = LegStatus.OPEN, irDescriptor: IrDescriptor = IrDescriptor.noIr(), banker: Boolean = false) :
