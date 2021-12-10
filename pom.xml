@@ -12,11 +12,11 @@
 
    <properties>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-      <kotlin.version>1.5.0</kotlin.version>
-      <kotlin.compiler.jvmTarget>11</kotlin.compiler.jvmTarget>
+      <kotlin.version>1.6.0</kotlin.version>
+      <kotlin.compiler.jvmTarget>17</kotlin.compiler.jvmTarget>
       <kotlin.code.style>official</kotlin.code.style>
-      <assertk.version>0.24</assertk.version>
-      <jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>
+      <assertk.version>0.25</assertk.version>
+      <jacoco.version>0.8.7</jacoco.version>
    </properties>
 
    <dependencies>
@@ -79,7 +79,7 @@
          <plugin>
             <groupId>org.jacoco</groupId>
             <artifactId>jacoco-maven-plugin</artifactId>
-            <version>${jacoco-maven-plugin.version}</version>
+            <version>${jacoco.version}</version>
             <executions>
                <execution>
                   <id>agent</id>

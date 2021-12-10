@@ -20,7 +20,7 @@ class BetCalculationPT {
 
          units += result.unitCount.toDouble()
       }
-      println("Units/sec: " + units / duration.inSeconds)
+      println("Units/sec: " + units / duration.inWholeSeconds)
    }
 
    @Test @Ignore
@@ -38,6 +38,6 @@ class BetCalculationPT {
             units += result.unitCount.toDouble()
          }
       }
-      println("Units/sec: " + units / duration.inSeconds)
+      println("Units/sec: " + units / duration.inWholeSeconds)
    }
 }
