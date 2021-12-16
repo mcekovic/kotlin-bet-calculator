@@ -19,4 +19,6 @@ jobs:
         java-version: 17
     - name: Build with Maven
       run: mvn -B deploy
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - uses: codecov/codecov-action@v1
