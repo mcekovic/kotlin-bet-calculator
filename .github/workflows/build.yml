@@ -22,3 +22,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - uses: codecov/codecov-action@v1
+    - uses: actions/delete-package-versions@v2
+      with:
+        package-name: kotlin-bet-calculator
+        min-versions-to-keep: 1
+        delete-only-pre-release-versions: true
