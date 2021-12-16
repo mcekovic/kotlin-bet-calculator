@@ -2,9 +2,9 @@ package org.strangeforest.betcalculator.util
 
 expect class Decimal : Comparable<Decimal> {
 
-   constructor(value: String)
    constructor(value: Int)
    constructor(value: Double)
+   constructor(value: String)
 
    operator fun plus(other: Decimal): Decimal
    operator fun minus(other: Decimal): Decimal
@@ -19,13 +19,13 @@ expect class Decimal : Comparable<Decimal> {
    override fun toString(): String
 }
 
-val String.dec: Decimal
-   get() = Decimal(this)
-
 val Int.dec: Decimal
    get() = Decimal(this)
 
 val Double.dec: Decimal
+   get() = Decimal(this)
+
+val String.dec: Decimal
    get() = Decimal(this)
 
 val ZERO = Decimal("0")

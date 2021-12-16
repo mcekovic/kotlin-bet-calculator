@@ -19,6 +19,14 @@
       <jacoco.version>0.8.7</jacoco.version>
    </properties>
 
+   <distributionManagement>
+      <repository>
+         <id>github</id>
+         <name>GitHub mcekovic Maven Packages</name>
+         <url>https://maven.pkg.github.com/mcekovic/kotlin-bet-calculator</url>
+      </repository>
+   </distributionManagement>
+
    <dependencies>
       <dependency>
          <groupId>org.jetbrains.kotlin</groupId>

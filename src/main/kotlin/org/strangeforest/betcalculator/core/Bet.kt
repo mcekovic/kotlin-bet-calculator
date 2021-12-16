@@ -10,7 +10,6 @@ internal data class Bet(
    val groups: List<BetLegGroup> = emptyList(),
    val rules: BetRules = BetRules.DEFAULT
 ) {
-
    init {
       require(unitStake > ZERO) { "unitStake must be positive" }
       require(legs.isNotEmpty() != groups.isNotEmpty()) { "either legs or groups must be specified" }
